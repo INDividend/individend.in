@@ -3,275 +3,346 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>INDividend Finserv | AMFI Registered MFD | ARN-331134 | individend.in</title>
-<meta name="description" content="INDividend Finserv (ARN-331134) — AMFI Registered Mutual Fund Distributor in Tirupati. Distributing Mutual Funds, SIF, NPS, Insurance, FDs, Bonds and Loans. individend.in">
+<title>INDividend Finserv | Mutual Fund Distributor | individend.in</title>
+<meta name="description" content="INDividend Finserv — Mutual Fund Distributor. Your Goals. Our Support. Growing Together. Mutual Funds, SIF, NPS, Insurance, FDs, Bonds, Loans and PMS.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://individend.in">
-<meta property="og:title" content="INDividend Finserv | ARN-331134">
-<meta property="og:description" content="AMFI Registered Mutual Fund Distributor. Your Goals. Our Support. Growing Together.">
+<meta property="og:title" content="INDividend Finserv">
+<meta property="og:description" content="Your Goals. Our Support. Growing Together.">
 <meta property="og:url" content="https://individend.in">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
 <style>
 :root{
   --navy:#1E2D4E;--navy-deep:#162238;--navy-mid:#243558;
-  --gold:#B8960C;--gold-light:#D4AC20;
+  --gold:#C5A800;--gold-light:#D4B800;--gold-pale:#FDF7DC;
   --cream:#F5F0E8;--white:#FFFFFF;
   --text-dark:#1A1A2E;--text-mid:#4A5568;--text-light:#718096;
   --border:rgba(30,45,78,0.12);
-  --shadow-sm:0 2px 8px rgba(30,45,78,0.08);
-  --shadow-md:0 8px 32px rgba(30,45,78,0.12);
-  --shadow-lg:0 20px 60px rgba(30,45,78,0.18);
+  --shadow-sm:0 2px 8px rgba(30,45,78,0.07);
+  --shadow-md:0 8px 32px rgba(30,45,78,0.11);
+  --shadow-lg:0 20px 60px rgba(30,45,78,0.17);
   --r:16px;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{font-family:'Inter',sans-serif;background:#fff;color:var(--text-dark);overflow-x:hidden;}
+body{font-family:'DM Sans',sans-serif;background:#fff;color:var(--text-dark);overflow-x:hidden;}
 
 /* ── NAV ── */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:1000;
   background:rgba(22,34,56,0.97);backdrop-filter:blur(20px);
-  border-bottom:1px solid rgba(184,150,12,0.25);
-  padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:70px;
+  border-bottom:1px solid rgba(197,168,0,0.22);
+  padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:72px;
   transition:box-shadow 0.3s;
 }
-.nav-logo{display:flex;align-items:center;gap:11px;text-decoration:none;}
-.nav-logo img{height:42px;width:42px;object-fit:contain;border-radius:7px;background:#fff;padding:3px;}
-.nb-name{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#fff;line-height:1.1;}
-.nb-name span{color:#D4AC20;}
-.nb-sub{font-size:0.6rem;color:rgba(255,255,255,0.48);letter-spacing:0.08em;text-transform:uppercase;}
+.nav-logo{display:flex;align-items:center;gap:13px;text-decoration:none;}
+.nav-logo img{height:44px;width:44px;object-fit:contain;border-radius:8px;background:#fff;padding:3px;}
+.nb-name{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#fff;line-height:1.1;}
 .nav-links{display:flex;align-items:center;gap:2px;list-style:none;}
-.nav-links a{color:rgba(255,255,255,0.78);text-decoration:none;font-size:0.8rem;font-weight:500;padding:7px 13px;border-radius:7px;transition:all 0.2s;}
-.nav-links a:hover{color:#D4AC20;background:rgba(184,150,12,0.1);}
-.nav-cta{background:linear-gradient(135deg,#B8960C,#D4AC20)!important;color:#162238!important;font-weight:700!important;padding:9px 20px!important;border-radius:50px!important;box-shadow:0 4px 16px rgba(184,150,12,0.35)!important;}
-.nav-cta:hover{opacity:0.9;transform:translateY(-1px);}
+.nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:0.95rem;font-weight:600;padding:8px 16px;border-radius:8px;transition:all 0.2s;}
+.nav-links a:hover{color:var(--gold-light);background:rgba(197,168,0,0.1);}
 .hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;}
 .hbg span{width:23px;height:2px;background:#fff;border-radius:2px;display:block;}
-.mob-nav{display:none;position:fixed;top:70px;left:0;right:0;bottom:0;background:rgba(22,34,56,0.99);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:6px;}
+.mob-nav{display:none;position:fixed;top:72px;left:0;right:0;bottom:0;background:rgba(22,34,56,0.99);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:8px;}
 .mob-nav.open{display:flex;}
-.mob-nav a{color:rgba(255,255,255,0.85);font-size:1.2rem;font-weight:600;text-decoration:none;padding:14px 44px;border-radius:10px;transition:all 0.2s;width:260px;text-align:center;}
-.mob-nav a:hover{background:rgba(184,150,12,0.15);color:#D4AC20;}
-.mob-nav a.mc{background:linear-gradient(135deg,#B8960C,#D4AC20);color:#162238!important;margin-top:6px;font-weight:800;}
-
-/* ── COMPLIANCE STRIP ── */
-.compliance-strip{
-  background:linear-gradient(90deg,#B8960C,#D4AC20);
-  color:#162238;font-size:0.72rem;font-weight:700;
-  text-align:center;padding:8px 5%;letter-spacing:0.04em;
-  position:sticky;top:70px;z-index:999;
-}
+.mob-nav a{color:rgba(255,255,255,0.85);font-size:1.1rem;font-weight:600;text-decoration:none;padding:14px 44px;border-radius:10px;transition:all 0.2s;width:270px;text-align:center;}
+.mob-nav a:hover{background:rgba(197,168,0,0.15);color:var(--gold-light);}
 
 /* ── HERO ── */
 #home{
   min-height:100vh;
-  background:linear-gradient(145deg,#162238 0%,#1E2D4E 50%,#243558 100%);
-  position:relative;overflow:hidden;display:flex;align-items:center;padding-top:70px;
+  background:linear-gradient(148deg,#162238 0%,#1E2D4E 52%,#243558 100%);
+  position:relative;overflow:hidden;display:flex;align-items:center;padding-top:72px;
 }
-.hero-bg-grid{position:absolute;inset:0;opacity:0.035;background-image:linear-gradient(rgba(255,255,255,0.5) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.5) 1px,transparent 1px);background-size:55px 55px;}
-.hero-glow1{position:absolute;top:-20%;right:-10%;width:650px;height:650px;background:radial-gradient(circle,rgba(184,150,12,0.2) 0%,transparent 65%);pointer-events:none;}
-.hero-glow2{position:absolute;bottom:-30%;left:-15%;width:550px;height:550px;background:radial-gradient(circle,rgba(36,53,88,0.5) 0%,transparent 65%);pointer-events:none;}
-.hero-inner{max-width:1240px;margin:0 auto;padding:80px 5%;display:grid;grid-template-columns:1fr 1fr;gap:68px;align-items:center;width:100%;}
+.hero-bg-grid{position:absolute;inset:0;opacity:0.028;background-image:linear-gradient(rgba(255,255,255,0.5) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.5) 1px,transparent 1px);background-size:55px 55px;}
+.hero-glow1{position:absolute;top:-18%;right:-8%;width:640px;height:640px;background:radial-gradient(circle,rgba(197,168,0,0.17) 0%,transparent 65%);pointer-events:none;}
+.hero-glow2{position:absolute;bottom:-28%;left:-12%;width:520px;height:520px;background:radial-gradient(circle,rgba(36,53,88,0.45) 0%,transparent 65%);pointer-events:none;}
+.hero-inner{max-width:1200px;margin:0 auto;padding:90px 5%;display:grid;grid-template-columns:1fr 430px;gap:64px;align-items:center;width:100%;}
 
-.h-eyebrow{display:inline-flex;align-items:center;gap:7px;background:rgba(184,150,12,0.15);border:1px solid rgba(184,150,12,0.38);color:#D4AC20;font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:5px 15px;border-radius:50px;margin-bottom:22px;}
-.h-eyebrow::before{content:"●";font-size:0.48rem;animation:blink 2s infinite;}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:0.25}}
+.h-eyebrow{display:inline-flex;align-items:center;gap:7px;background:rgba(197,168,0,0.12);border:1px solid rgba(197,168,0,0.32);color:var(--gold-light);font-size:0.67rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;padding:5px 14px;border-radius:50px;margin-bottom:26px;}
+.h-eyebrow::before{content:"●";font-size:0.44rem;animation:blink 2s infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.2}}
 
-.h-headline{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4.2vw,3.4rem);font-weight:900;line-height:1.1;color:#fff;margin-bottom:18px;}
-.h-headline .gold{color:#D4AC20;}
-.h-headline .ul{position:relative;display:inline-block;}
-.h-headline .ul::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:3px;background:linear-gradient(90deg,#B8960C,transparent);border-radius:2px;}
-.h-sub{font-size:0.97rem;color:rgba(255,255,255,0.65);line-height:1.72;margin-bottom:30px;max-width:470px;}
-.h-badges{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:30px;}
-.hb{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.14);color:rgba(255,255,255,0.8);font-size:0.74rem;font-weight:500;padding:5px 13px;border-radius:50px;}
-.hb.g{background:rgba(184,150,12,0.15);border-color:rgba(184,150,12,0.4);color:#D4AC20;}
-.h-ctas{display:flex;gap:13px;flex-wrap:wrap;}
-.btn-p{display:inline-flex;align-items:center;gap:7px;background:linear-gradient(135deg,#B8960C,#D4AC20);color:#162238;font-weight:700;font-size:0.88rem;padding:13px 27px;border-radius:50px;text-decoration:none;box-shadow:0 6px 22px rgba(184,150,12,0.38);transition:all 0.3s;border:none;cursor:pointer;}
-.btn-p:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(184,150,12,0.48);}
-.btn-o{display:inline-flex;align-items:center;gap:7px;background:transparent;border:1.5px solid rgba(255,255,255,0.32);color:#fff;font-weight:600;font-size:0.88rem;padding:13px 27px;border-radius:50px;text-decoration:none;transition:all 0.3s;cursor:pointer;}
-.btn-o:hover{border-color:#D4AC20;color:#D4AC20;}
-.tagline{font-style:italic;color:rgba(255,255,255,0.35);font-size:0.86rem;margin-top:13px;display:block;}
+.h-headline{font-family:'Playfair Display',serif;font-size:clamp(3rem,5.8vw,5rem);font-weight:900;line-height:1.06;color:#fff;margin-bottom:16px;letter-spacing:-0.01em;}
+.h-headline .hl{color:var(--gold-light);position:relative;display:inline;}
+.h-headline .hl::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),transparent);border-radius:2px;}
+.h-tagline{font-style:italic;color:rgba(255,255,255,0.48);font-size:1rem;margin-top:10px;display:block;margin-bottom:36px;}
 
 /* Hero QR card */
-.hero-card{background:rgba(255,255,255,0.065);border:1px solid rgba(255,255,255,0.13);border-radius:22px;padding:30px;backdrop-filter:blur(20px);text-align:center;position:relative;}
-.hero-card::before{content:'';position:absolute;inset:-1px;border-radius:23px;background:linear-gradient(135deg,rgba(184,150,12,0.38),transparent,rgba(184,150,12,0.18));z-index:-1;}
-.hc-lbl{font-size:0.68rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#D4AC20;margin-bottom:10px;}
-.hc-title{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:#fff;margin-bottom:5px;}
-.hc-sub{font-size:0.78rem;color:rgba(255,255,255,0.48);margin-bottom:18px;}
-.qr-wrap{background:#fff;border-radius:13px;padding:13px;display:inline-block;box-shadow:0 8px 30px rgba(0,0,0,0.22);margin-bottom:14px;}
-.qr-wrap img{width:172px;height:172px;display:block;}
-.hc-url{color:rgba(255,255,255,0.38);font-size:0.7rem;}
-.hc-stats{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:16px;}
-.hcs{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.09);border-radius:11px;padding:11px;}
-.hcs-n{font-family:'Space Grotesk',sans-serif;font-size:1.25rem;font-weight:700;color:#D4AC20;line-height:1;}
-.hcs-l{font-size:0.63rem;color:rgba(255,255,255,0.42);margin-top:3px;}
+.hero-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.11);border-radius:24px;padding:36px 30px;backdrop-filter:blur(20px);text-align:center;position:relative;}
+.hero-card::before{content:'';position:absolute;inset:-1px;border-radius:25px;background:linear-gradient(135deg,rgba(197,168,0,0.32),transparent,rgba(197,168,0,0.14));z-index:-1;}
+.hc-badge{display:inline-block;background:rgba(197,168,0,0.14);border:1px solid rgba(197,168,0,0.33);color:var(--gold-light);font-size:0.63rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:4px 12px;border-radius:50px;margin-bottom:14px;}
+.hc-title{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:#fff;margin-bottom:4px;}
+.hc-sub{font-size:0.77rem;color:rgba(255,255,255,0.42);margin-bottom:20px;}
+.qr-wrap{background:#fff;border-radius:16px;padding:14px;display:inline-block;box-shadow:0 8px 30px rgba(0,0,0,0.24);margin-bottom:14px;}
+.qr-wrap img{width:168px;height:168px;display:block;}
+.hc-url{color:rgba(255,255,255,0.32);font-size:0.67rem;margin-bottom:18px;}
+.hc-cta{display:block;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:#162238;font-weight:700;font-size:0.9rem;padding:14px 24px;border-radius:50px;text-decoration:none;box-shadow:0 6px 20px rgba(197,168,0,0.38);transition:all 0.3s;}
+.hc-cta:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(197,168,0,0.48);}
 
-/* ── TRUST BAR ── */
-.trust-bar{background:var(--cream);border-bottom:1px solid var(--border);padding:15px 5%;}
-.trust-inner{max-width:1240px;margin:0 auto;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:26px;}
-.ti{display:flex;align-items:center;gap:9px;font-size:0.79rem;color:var(--text-mid);font-weight:500;}
-.ti-icon{width:29px;height:29px;background:var(--navy);border-radius:7px;display:flex;align-items:center;justify-content:center;color:#D4AC20;font-size:0.82rem;flex-shrink:0;}
-.tsep{width:1px;height:26px;background:var(--border);}
-
-/* ── GENERIC SECTION ── */
-section{padding:92px 5%;}
-.si{max-width:1240px;margin:0 auto;}
-.s-eye{font-size:0.68rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:9px;display:block;}
+/* ── GENERIC ── */
+section{padding:90px 5%;}
+.si{max-width:1200px;margin:0 auto;}
+.s-eye{font-size:0.65rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:9px;display:block;}
 .s-title{font-family:'Playfair Display',serif;font-size:clamp(1.75rem,2.8vw,2.5rem);font-weight:800;color:var(--navy);line-height:1.2;margin-bottom:13px;}
-.s-sub{font-size:0.93rem;color:var(--text-mid);max-width:530px;line-height:1.7;}
+.s-sub{font-size:0.92rem;color:var(--text-mid);max-width:560px;line-height:1.74;}
+.btn-p{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:#162238;font-weight:700;font-size:0.92rem;padding:15px 34px;border-radius:50px;text-decoration:none;box-shadow:0 6px 22px rgba(197,168,0,0.4);transition:all 0.3s;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(197,168,0,0.52);}
 
-/* ── SERVICES ── */
-#services{background:var(--cream);}
-.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:50px;}
-.svc{background:#fff;border-radius:var(--r);padding:28px 24px;border:1px solid var(--border);box-shadow:var(--shadow-sm);transition:all 0.35s;position:relative;overflow:hidden;}
-.svc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#B8960C,#D4AC20);transform:scaleX(0);transform-origin:left;transition:transform 0.35s;}
-.svc:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:rgba(184,150,12,0.3);}
-.svc:hover::before{transform:scaleX(1);}
-.svc-icon{width:50px;height:50px;background:rgba(30,45,78,0.07);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.35rem;margin-bottom:16px;border:1px solid rgba(30,45,78,0.09);}
-.svc h3{font-family:'Space Grotesk',sans-serif;font-size:0.97rem;font-weight:700;color:var(--navy);margin-bottom:8px;}
-.svc p{font-size:0.81rem;color:var(--text-mid);line-height:1.6;}
-.svc-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:12px;}
-.st{background:rgba(30,45,78,0.06);color:var(--navy);font-size:0.67rem;font-weight:600;letter-spacing:0.04em;padding:3px 9px;border-radius:50px;}
+/* ── PRODUCTS & SERVICES (colourful card grid) ── */
+#offerings{background:var(--navy-deep);padding-bottom:100px;}
+.off-header{text-align:center;margin-bottom:60px;}
+.off-header .s-title{color:#fff;}
+.off-header .s-sub{color:rgba(255,255,255,0.55);margin:0 auto;}
+.off-header .s-eye{color:var(--gold-light);}
+
+/* Section divider label */
+.cat-section-label{display:flex;align-items:center;gap:16px;margin-bottom:32px;margin-top:56px;}
+.cat-section-label:first-of-type{margin-top:0;}
+.csl-line{flex:1;height:1px;background:rgba(255,255,255,0.1);}
+.csl-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(197,168,0,0.14);border:1px solid rgba(197,168,0,0.35);color:var(--gold-light);font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:6px 16px;border-radius:50px;white-space:nowrap;}
+
+/* Coloured card grid */
+.prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.svc-grid-col{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+
+/* Individual product card */
+.pc{border-radius:22px;padding:28px 26px 24px;position:relative;overflow:hidden;cursor:default;transition:transform 0.3s,box-shadow 0.3s;display:flex;flex-direction:column;min-height:220px;}
+.pc:hover{transform:translateY(-6px);box-shadow:0 24px 56px rgba(0,0,0,0.32);}
+.pc::after{content:'';position:absolute;bottom:-30px;right:-30px;width:110px;height:110px;border-radius:50%;opacity:0.15;background:rgba(255,255,255,0.3);}
+
+/* Product card colour themes */
+.pc-mf{background:linear-gradient(135deg,#1a3a6b 0%,#1E2D4E 100%);border:1px solid rgba(100,140,220,0.25);}
+.pc-nps{background:linear-gradient(135deg,#14523a 0%,#1a6b4a 100%);border:1px solid rgba(60,200,120,0.2);}
+.pc-ins{background:linear-gradient(135deg,#4a1f6b 0%,#6a2d94 100%);border:1px solid rgba(170,100,240,0.25);}
+.pc-loan{background:linear-gradient(135deg,#5a2800 0%,#8b3d00 100%);border:1px solid rgba(240,140,50,0.25);}
+.pc-pms{background:linear-gradient(135deg,#1a3d5c 0%,#0f2b42 100%);border:1px solid rgba(197,168,0,0.3);}
+
+/* Service card colour themes */
+.pc-goal{background:linear-gradient(135deg,#7c1d1d 0%,#a82b2b 100%);border:1px solid rgba(240,100,100,0.25);}
+.pc-ret{background:linear-gradient(135deg,#1e3a1e 0%,#2d5c2d 100%);border:1px solid rgba(80,200,100,0.22);}
+.pc-rev{background:linear-gradient(135deg,#1a2a5e 0%,#243580 100%);border:1px solid rgba(100,160,255,0.22);}
+
+.pc-emoji{font-size:2.2rem;margin-bottom:14px;display:block;line-height:1;}
+.pc-title{font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.25;}
+.pc-desc{font-size:0.8rem;color:rgba(255,255,255,0.62);line-height:1.6;flex:1;}
+.pc-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:14px;}
+.pct{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.18);color:rgba(255,255,255,0.82);font-size:0.62rem;font-weight:600;letter-spacing:0.03em;padding:3px 9px;border-radius:50px;}
+
+.h-card{display:grid;grid-template-columns:72px 1fr auto;align-items:center;gap:20px;background:#fff;border-radius:18px;padding:22px 24px;border:1px solid var(--border);box-shadow:var(--shadow-sm);transition:all 0.3s;cursor:default;}
+.h-card:hover{box-shadow:var(--shadow-md);border-color:rgba(197,168,0,0.3);transform:translateX(6px);}
+.h-card-icon{width:72px;height:72px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;flex-shrink:0;}
+.h-card-icon.navy{background:rgba(30,45,78,0.08);}
+.h-card-icon.gold{background:rgba(197,168,0,0.1);}
+.h-card-body h4{font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:5px;}
+.h-card-body p{font-size:0.83rem;color:var(--text-mid);line-height:1.6;max-width:520px;}
+.h-card-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:9px;}
+.ht{background:rgba(30,45,78,0.06);color:var(--navy);font-size:0.65rem;font-weight:600;letter-spacing:0.03em;padding:3px 9px;border-radius:50px;}
+.h-card-arrow{color:rgba(30,45,78,0.2);font-size:1.4rem;flex-shrink:0;transition:all 0.25s;}
+.h-card:hover .h-card-arrow{color:var(--gold);transform:translateX(3px);}
 
 /* ── HOW IT WORKS ── */
 #how{background:linear-gradient(155deg,#162238 0%,#1E2D4E 100%);position:relative;overflow:hidden;}
-#how::before{content:'';position:absolute;top:-50%;right:-20%;width:750px;height:750px;background:radial-gradient(circle,rgba(184,150,12,0.1) 0%,transparent 60%);}
+#how::before{content:'';position:absolute;top:-50%;right:-20%;width:750px;height:750px;background:radial-gradient(circle,rgba(197,168,0,0.08) 0%,transparent 60%);}
 #how .s-title{color:#fff;}
-#how .s-sub{color:rgba(255,255,255,0.52);}
-#how .s-eye{color:#D4AC20;}
+#how .s-sub{color:rgba(255,255,255,0.5);}
+#how .s-eye{color:var(--gold-light);}
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:50px;position:relative;}
-.steps::before{content:'';position:absolute;top:33px;left:12.5%;right:12.5%;height:1px;background:linear-gradient(90deg,transparent,rgba(184,150,12,0.4),transparent);}
+.steps::before{content:'';position:absolute;top:33px;left:12.5%;right:12.5%;height:1px;background:linear-gradient(90deg,transparent,rgba(197,168,0,0.38),transparent);}
 .step{text-align:center;padding:0 14px;}
-.step-n{width:66px;height:66px;border-radius:50%;background:linear-gradient(135deg,#B8960C,#D4AC20);color:#162238;font-family:'Space Grotesk';font-weight:800;font-size:1.3rem;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 8px 22px rgba(184,150,12,0.33);}
+.step-n{width:66px;height:66px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:#162238;font-family:'Space Grotesk';font-weight:800;font-size:1.3rem;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 8px 22px rgba(197,168,0,0.28);}
 .step h3{font-size:0.9rem;font-weight:700;color:#fff;margin-bottom:7px;}
-.step p{font-size:0.78rem;color:rgba(255,255,255,0.5);line-height:1.6;}
+.step p{font-size:0.78rem;color:rgba(255,255,255,0.48);line-height:1.62;}
 
 /* ── CALCULATOR ── */
-#calculator{background:var(--cream);}
-.calc-wrap{background:#fff;border-radius:20px;box-shadow:var(--shadow-lg);overflow:hidden;margin-top:50px;border:1px solid var(--border);}
-.calc-tabs{display:flex;background:var(--navy);}
-.ctab{flex:1;padding:16px;text-align:center;font-weight:600;font-size:0.84rem;letter-spacing:0.03em;color:rgba(255,255,255,0.42);cursor:pointer;border:none;background:none;transition:all 0.25s;position:relative;}
-.ctab.active{color:#D4AC20;background:rgba(184,150,12,0.1);}
-.ctab.active::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#B8960C,#D4AC20);}
-.cbody{display:none;padding:36px;}
-.cbody.active{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start;}
-.c-inputs{display:flex;flex-direction:column;gap:20px;}
-.ig{display:flex;flex-direction:column;gap:6px;}
-.il{font-size:0.76rem;font-weight:600;color:var(--text-mid);display:flex;justify-content:space-between;}
-.iv{font-size:0.76rem;font-weight:700;color:var(--navy);background:rgba(30,45,78,0.07);padding:3px 10px;border-radius:50px;}
-input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:5px;border-radius:3px;background:linear-gradient(90deg,#B8960C var(--p,50%),#E2E8F0 var(--p,50%));outline:none;cursor:pointer;}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--navy);border:2.5px solid #D4AC20;box-shadow:0 2px 8px rgba(30,45,78,0.28);cursor:pointer;}
-.cdis{font-size:0.7rem;color:var(--text-light);line-height:1.55;margin-top:4px;}
-.c-result{background:linear-gradient(145deg,#162238,#1E2D4E);border-radius:13px;padding:28px;color:#fff;}
-.rl{font-size:0.67rem;color:rgba(255,255,255,0.46);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;}
-.rv{font-family:'Space Grotesk';font-size:1.95rem;font-weight:800;color:#D4AC20;line-height:1;margin-bottom:20px;}
-.rrows{display:flex;flex-direction:column;gap:9px;margin-bottom:18px;}
-.rr{display:flex;justify-content:space-between;align-items:center;font-size:0.79rem;}
-.rr span:first-child{color:rgba(255,255,255,0.52);}
+#calculator{background:#fff;}
+.calc-hd{text-align:center;margin-bottom:44px;}
+.calc-hd .s-sub{margin:0 auto;max-width:500px;}
+.calc-shell{border-radius:26px;overflow:hidden;box-shadow:var(--shadow-lg);border:1px solid var(--border);}
+.calc-nav{display:flex;background:var(--navy);}
+.ctab{flex:1;padding:16px 8px;text-align:center;font-weight:600;font-size:0.85rem;color:rgba(255,255,255,0.45);cursor:pointer;border:none;background:none;transition:all 0.25s;position:relative;font-family:'DM Sans',sans-serif;letter-spacing:0.01em;}
+.ctab.active{color:var(--gold-light);background:rgba(197,168,0,0.09);}
+.ctab.active::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-light));}
+.cplane{display:none;background:var(--cream);}
+.cplane.active{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+
+/* SIP sub-mode tabs */
+.sip-mode-row{display:flex;gap:0;margin-bottom:22px;background:rgba(30,45,78,0.07);border-radius:10px;padding:4px;}
+.smode{flex:1;padding:8px 4px;border:none;background:none;font-family:'DM Sans',sans-serif;font-size:0.76rem;font-weight:600;color:var(--text-mid);cursor:pointer;border-radius:7px;transition:all 0.2s;}
+.smode.active{background:#fff;color:var(--navy);box-shadow:0 1px 8px rgba(30,45,78,0.1);}
+
+/* Hidden sip fields */
+.sip-field.hidden{display:none;}
+
+/* Input side */
+.cin-side{padding:32px 30px;background:#fff;border-right:1px solid var(--border);}
+.cin-side h3{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:6px;}
+.cin-side p.cdesc{font-size:0.78rem;color:var(--text-mid);margin-bottom:22px;line-height:1.6;}
+.ig{display:flex;flex-direction:column;gap:6px;margin-bottom:16px;}
+.il{font-size:0.74rem;font-weight:600;color:var(--text-mid);display:flex;justify-content:space-between;align-items:center;}
+.iv{font-size:0.76rem;font-weight:700;color:var(--navy);background:rgba(30,45,78,0.07);padding:3px 11px;border-radius:50px;}
+
+/* Range + number input row */
+.range-with-input{display:flex;align-items:center;gap:10px;}
+.range-with-input input[type=range]{flex:1;}
+.num-inp{width:88px;padding:6px 9px;border:1.5px solid var(--border);border-radius:7px;font-size:0.8rem;font-family:'DM Sans';color:var(--text-dark);outline:none;background:var(--cream);text-align:right;transition:border-color 0.2s;-moz-appearance:textfield;flex-shrink:0;}
+.num-inp::-webkit-outer-spin-button,.num-inp::-webkit-inner-spin-button{-webkit-appearance:none;}
+.num-inp:focus{border-color:var(--gold);background:#fff;}
+
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:5px;border-radius:3px;background:linear-gradient(90deg,var(--gold) var(--p,50%),#E2E8F0 var(--p,50%));outline:none;cursor:pointer;}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--navy);border:2.5px solid var(--gold-light);box-shadow:0 2px 8px rgba(30,45,78,0.26);cursor:pointer;}
+.cdis{font-size:0.68rem;color:var(--text-mid);line-height:1.55;background:rgba(30,45,78,0.05);border-radius:8px;padding:10px 12px;border-left:3px solid var(--gold);margin-top:6px;}
+
+/* Result side */
+.cout-side{padding:32px 30px;background:var(--cream);display:flex;flex-direction:column;gap:0;}
+.corpus-box{background:linear-gradient(145deg,#162238,#1E2D4E);border-radius:18px;padding:22px 24px;color:#fff;margin-bottom:16px;}
+.cl{font-size:0.63rem;color:rgba(255,255,255,0.55);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:3px;}
+.cv{font-family:'Space Grotesk';font-size:2rem;font-weight:800;color:var(--gold-light);line-height:1;margin-bottom:14px;}
+.rrows{display:flex;flex-direction:column;gap:7px;margin-bottom:14px;}
+.rr{display:flex;justify-content:space-between;align-items:center;font-size:0.77rem;}
+.rr span:first-child{color:rgba(255,255,255,0.6);}
 .rr span:last-child{font-weight:700;color:#fff;}
 .rr.gain span:last-child{color:#4ADE80;}
-.donut-w{text-align:center;margin-bottom:18px;}
-.donut-w svg{width:140px;height:140px;}
-.rcta{display:block;text-align:center;background:linear-gradient(135deg,#B8960C,#D4AC20);color:#162238;font-weight:700;font-size:0.84rem;padding:11px 20px;border-radius:50px;text-decoration:none;box-shadow:0 4px 14px rgba(184,150,12,0.32);margin-top:4px;}
 
-/* ── ABOUT ── */
-#about{background:#fff;}
-.about-g{display:grid;grid-template-columns:1fr 1fr;gap:68px;align-items:center;margin-top:50px;}
-.about-vis{background:linear-gradient(145deg,#162238,#1E2D4E);border-radius:20px;padding:40px 34px;display:grid;grid-template-columns:1fr 1fr;gap:16px;position:relative;overflow:hidden;}
-.about-vis::before{content:'';position:absolute;top:-30%;right:-20%;width:380px;height:380px;background:radial-gradient(circle,rgba(184,150,12,0.17) 0%,transparent 60%);}
-.am{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.11);border-radius:13px;padding:20px;}
-.am-n{font-family:'Space Grotesk';font-size:1.7rem;font-weight:800;color:#D4AC20;line-height:1;}
-.am-l{font-size:0.72rem;color:rgba(255,255,255,0.46);margin-top:4px;line-height:1.4;}
-.a-pts{display:flex;flex-direction:column;gap:13px;margin-top:24px;}
-.apt{display:flex;gap:12px;align-items:flex-start;}
-.apt-i{width:35px;height:35px;background:rgba(184,150,12,0.1);border:1px solid rgba(184,150,12,0.24);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:0.9rem;flex-shrink:0;}
-.apt h4{font-size:0.88rem;font-weight:700;color:var(--navy);margin-bottom:3px;}
-.apt p{font-size:0.79rem;color:var(--text-mid);line-height:1.5;}
+/* Mini chart */
+.mini-chart{height:140px;background:rgba(255,255,255,0.04);border-radius:12px;padding:10px;margin-bottom:14px;}
+
+/* Nudge — improved visibility with dark bg for text */
+.nudge{background:#1a2e50;border:1px solid rgba(197,168,0,0.38);border-radius:12px;padding:14px 16px;margin-bottom:14px;}
+.nudge-ttl{font-size:0.67rem;font-weight:700;color:var(--gold-light);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;}
+.nudge-txt{font-size:0.79rem;color:#dde3ef;line-height:1.55;}
+.nudge-txt strong{color:#fff;}
+.nbtn{display:inline-block;margin-top:9px;background:rgba(197,168,0,0.22);border:1px solid rgba(197,168,0,0.5);color:var(--gold-light);font-size:0.72rem;font-weight:700;padding:6px 14px;border-radius:50px;cursor:pointer;transition:all 0.2s;font-family:'DM Sans',sans-serif;}
+.nbtn:hover{background:rgba(197,168,0,0.38);}
+
+.rcta{display:block;text-align:center;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:#162238;font-weight:700;font-size:0.86rem;padding:12px 22px;border-radius:50px;text-decoration:none;box-shadow:0 4px 14px rgba(197,168,0,0.28);margin-top:auto;}
+.rcta:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(197,168,0,0.38);}
+
+/* SWP specifics */
+.swp-warning{background:rgba(255,180,0,0.08);border:1px solid rgba(255,180,0,0.25);border-radius:10px;padding:11px 14px;margin-top:10px;}
+.swp-warning p{font-size:0.72rem;color:#8a6200;line-height:1.55;}
+
+
+/* ── WHY ── */
+#why{background:var(--cream);}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-top:50px;}
+.why-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.wc{background:#fff;border-radius:18px;padding:26px 20px;border:1px solid var(--border);box-shadow:var(--shadow-sm);transition:all 0.3s;position:relative;overflow:hidden;}
+.wc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),transparent);}
+.wc:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);}
+.wc.dk{background:linear-gradient(135deg,var(--navy),var(--navy-mid));border-color:rgba(197,168,0,0.22);}
+.wc.dk::after{background:linear-gradient(90deg,rgba(197,168,0,0.5),transparent);}
+.wc-icon{font-size:1.7rem;margin-bottom:10px;display:block;}
+.wc-val{font-family:'Space Grotesk',sans-serif;font-size:1.85rem;font-weight:800;color:var(--navy);line-height:1;}
+.wc.dk .wc-val{color:var(--gold-light);}
+.wc-lbl{font-size:0.73rem;color:var(--text-mid);margin-top:4px;line-height:1.45;}
+.wc.dk .wc-lbl{color:rgba(255,255,255,0.5);}
+.why-pts{display:flex;flex-direction:column;gap:15px;margin-top:24px;}
+.wpt{display:flex;gap:13px;align-items:flex-start;}
+.wpt-i{width:42px;height:42px;background:rgba(197,168,0,0.09);border:1px solid rgba(197,168,0,0.24);border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+.wpt h4{font-size:0.86rem;font-weight:700;color:var(--navy);margin-bottom:3px;font-family:'Space Grotesk',sans-serif;}
+.wpt p{font-size:0.77rem;color:var(--text-mid);line-height:1.55;}
+.trust-pills{display:flex;flex-wrap:wrap;gap:9px;margin-top:26px;}
+.tpill{display:flex;align-items:center;gap:5px;background:#fff;border:1px solid var(--border);border-radius:50px;padding:6px 13px;font-size:0.74rem;font-weight:600;color:var(--navy);box-shadow:var(--shadow-sm);}
+.tpill span{color:var(--gold);}
 
 /* ── CTA ── */
-#cta{background:linear-gradient(145deg,#162238,#1E2D4E);text-align:center;padding:92px 5%;position:relative;overflow:hidden;}
-#cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:850px;height:380px;background:radial-gradient(ellipse,rgba(184,150,12,0.13) 0%,transparent 60%);}
+#cta{background:linear-gradient(145deg,#162238,#1E2D4E);text-align:center;padding:80px 5%;position:relative;overflow:hidden;}
+#cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:340px;background:radial-gradient(ellipse,rgba(197,168,0,0.11) 0%,transparent 60%);}
 #cta .s-title{color:#fff;}
-#cta .s-sub{color:rgba(255,255,255,0.55);margin:0 auto 32px;text-align:center;max-width:500px;}
-.cta-row{display:flex;align-items:center;justify-content:center;gap:44px;flex-wrap:wrap;margin-top:40px;}
-.cta-qr{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.14);border-radius:17px;padding:22px;text-align:center;}
-.cta-ql{color:#D4AC20;font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-top:10px;}
-.cta-div{width:1px;height:170px;background:rgba(255,255,255,0.13);}
-.cta-txt{text-align:left;max-width:340px;}
-.cta-txt h3{font-family:'Playfair Display';font-size:1.45rem;font-weight:700;color:#fff;margin-bottom:9px;}
-.cta-txt p{color:rgba(255,255,255,0.55);font-size:0.86rem;line-height:1.7;margin-bottom:20px;}
+#cta .s-sub{color:rgba(255,255,255,0.5);margin:0 auto 32px;text-align:center;max-width:480px;}
+.cta-row{display:flex;align-items:center;justify-content:center;gap:44px;flex-wrap:wrap;margin-top:38px;}
+.cta-qr{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:18px;padding:24px;text-align:center;}
+.cta-ql{color:var(--gold-light);font-size:0.67rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-top:10px;}
+.cta-div{width:1px;height:160px;background:rgba(255,255,255,0.11);}
+.cta-txt{text-align:left;max-width:320px;}
+.cta-txt h3{font-family:'Playfair Display';font-size:1.4rem;font-weight:700;color:#fff;margin-bottom:9px;}
+.cta-txt p{color:rgba(255,255,255,0.5);font-size:0.85rem;line-height:1.72;margin-bottom:20px;}
 
 /* ── CONTACT ── */
 #contact{background:var(--cream);}
-.contact-g{display:grid;grid-template-columns:1fr 1.4fr;gap:50px;margin-top:50px;}
-.ci h3{font-family:'Playfair Display';font-size:1.2rem;font-weight:700;color:var(--navy);margin-bottom:6px;}
-.ci>p{font-size:0.84rem;color:var(--text-mid);line-height:1.6;margin-bottom:24px;}
-.cds{display:flex;flex-direction:column;gap:11px;margin-bottom:26px;}
-.cd{display:flex;align-items:center;gap:12px;background:#fff;border-radius:10px;padding:13px 15px;box-shadow:var(--shadow-sm);border:1px solid var(--border);}
-.cd-i{width:36px;height:36px;background:var(--navy);border-radius:9px;display:flex;align-items:center;justify-content:center;color:#D4AC20;font-size:0.9rem;flex-shrink:0;}
-.cdl{font-size:0.67rem;color:var(--text-light);font-weight:600;text-transform:uppercase;letter-spacing:0.06em;}
-.cdv{font-size:0.86rem;color:var(--navy);font-weight:600;}
+.contact-g{display:grid;grid-template-columns:1fr 1.4fr;gap:48px;margin-top:48px;}
+.ci h3{font-family:'Playfair Display';font-size:1.15rem;font-weight:700;color:var(--navy);margin-bottom:6px;}
+.ci>p{font-size:0.82rem;color:var(--text-mid);line-height:1.6;margin-bottom:22px;}
+.cds{display:flex;flex-direction:column;gap:10px;margin-bottom:24px;}
+.cd{display:flex;align-items:center;gap:12px;background:#fff;border-radius:10px;padding:12px 14px;box-shadow:var(--shadow-sm);border:1px solid var(--border);}
+.cd-i{width:34px;height:34px;background:var(--navy);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--gold-light);font-size:0.87rem;flex-shrink:0;}
+.cdl{font-size:0.63rem;color:var(--text-light);font-weight:600;text-transform:uppercase;letter-spacing:0.06em;}
+.cdv{font-size:0.83rem;color:var(--navy);font-weight:600;}
 .soc-row{display:flex;gap:8px;}
-.sl{width:38px;height:38px;border-radius:9px;background:var(--navy);color:#D4AC20;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all 0.25s;border:1px solid rgba(184,150,12,0.2);}
-.sl:hover{background:#B8960C;color:#162238;transform:translateY(-2px);}
-.cf{background:#fff;border-radius:17px;padding:30px;box-shadow:var(--shadow-md);border:1px solid var(--border);}
-.cf h3{font-family:'Space Grotesk';font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:20px;}
-.fr{display:grid;grid-template-columns:1fr 1fr;gap:13px;}
-.fg{display:flex;flex-direction:column;gap:5px;margin-bottom:13px;}
-.fg label{font-size:0.74rem;font-weight:600;color:var(--text-mid);}
-.fg input,.fg select,.fg textarea{padding:10px 13px;border:1.5px solid var(--border);border-radius:8px;font-size:0.84rem;font-family:'Inter';color:var(--text-dark);outline:none;transition:border-color 0.2s;background:var(--cream);}
-.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:#B8960C;background:#fff;}
-.fg textarea{resize:vertical;min-height:90px;}
-.bsub{width:100%;padding:12px;border:none;border-radius:50px;cursor:pointer;background:linear-gradient(135deg,#1E2D4E,#243558);color:#fff;font-weight:700;font-size:0.88rem;box-shadow:0 4px 14px rgba(30,45,78,0.28);transition:all 0.3s;}
-.bsub:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(30,45,78,0.38);}
-.fok{display:none;text-align:center;padding:20px;color:#2D7D46;font-weight:600;}
+.sl{width:36px;height:36px;border-radius:9px;background:var(--navy);color:var(--gold-light);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all 0.25s;border:1px solid rgba(197,168,0,0.18);}
+.sl:hover{background:var(--gold);color:#162238;transform:translateY(-2px);}
+.cf{background:#fff;border-radius:18px;padding:28px;box-shadow:var(--shadow-md);border:1px solid var(--border);}
+.cf h3{font-family:'Space Grotesk';font-size:0.97rem;font-weight:700;color:var(--navy);margin-bottom:18px;}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.fg{display:flex;flex-direction:column;gap:5px;margin-bottom:12px;}
+.fg label{font-size:0.72rem;font-weight:600;color:var(--text-mid);}
+.fg input,.fg select,.fg textarea{padding:10px 12px;border:1.5px solid var(--border);border-radius:8px;font-size:0.83rem;font-family:'DM Sans';color:var(--text-dark);outline:none;transition:border-color 0.2s;background:var(--cream);}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--gold);background:#fff;}
+.fg textarea{resize:vertical;min-height:88px;}
+.bsub{width:100%;padding:12px;border:none;border-radius:50px;cursor:pointer;background:linear-gradient(135deg,var(--navy),var(--navy-mid));color:#fff;font-weight:700;font-size:0.87rem;box-shadow:0 4px 14px rgba(30,45,78,0.24);transition:all 0.3s;font-family:'DM Sans',sans-serif;}
+.bsub:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(30,45,78,0.34);}
+.fok{display:none;text-align:center;padding:18px;color:#2D7D46;font-weight:600;}
 
 /* ── FOOTER ── */
-footer{background:#162238;color:rgba(255,255,255,0.52);padding:52px 5% 0;}
-.fg-grid{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,0.08);}
-.fbn{font-family:'Playfair Display';font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:3px;}
-.fbn span{color:#D4AC20;}
-.farn{display:inline-block;background:rgba(184,150,12,0.14);border:1px solid rgba(184,150,12,0.28);color:#D4AC20;font-size:0.68rem;font-weight:700;padding:3px 10px;border-radius:50px;margin-bottom:12px;letter-spacing:0.06em;}
-.fb p{font-size:0.78rem;line-height:1.7;max-width:260px;}
-.fc h4{font-size:0.72rem;font-weight:700;color:#fff;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:13px;}
-.fc a{display:block;color:rgba(255,255,255,0.46);font-size:0.78rem;text-decoration:none;margin-bottom:8px;transition:color 0.2s;}
-.fc a:hover{color:#D4AC20;}
-.fbot{max-width:1240px;margin:0 auto;padding:16px 0;text-align:center;font-size:0.7rem;color:rgba(255,255,255,0.26);}
+footer{background:#162238;color:rgba(255,255,255,0.48);padding:50px 5% 0;}
+.fg-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:38px;padding-bottom:38px;border-bottom:1px solid rgba(255,255,255,0.07);}
+.fbn{font-family:'Playfair Display';font-size:1.15rem;font-weight:700;color:#fff;margin-bottom:3px;}
+.farn{display:inline-block;background:rgba(197,168,0,0.12);border:1px solid rgba(197,168,0,0.26);color:var(--gold-light);font-size:0.66rem;font-weight:700;padding:3px 10px;border-radius:50px;margin-bottom:11px;letter-spacing:0.06em;}
+.fb p{font-size:0.77rem;line-height:1.7;max-width:248px;}
+.fc h4{font-size:0.7rem;font-weight:700;color:#fff;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:12px;}
+.fc a{display:block;color:rgba(255,255,255,0.42);font-size:0.77rem;text-decoration:none;margin-bottom:7px;transition:color 0.2s;}
+.fc a:hover{color:var(--gold-light);}
+.fbot{max-width:1200px;margin:0 auto;padding:15px 0;text-align:center;font-size:0.67rem;color:rgba(255,255,255,0.22);}
 
 /* ── DISCLAIMER ── */
-.disc{background:#111827;padding:26px 5%;border-top:1px solid rgba(255,255,255,0.05);}
-.disc-in{max-width:1240px;margin:0 auto;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:9px;padding:20px 24px;}
-.disc-in h4{font-size:0.7rem;font-weight:700;color:#D4AC20;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;}
-.disc-in p{font-size:0.69rem;color:rgba(255,255,255,0.38);line-height:1.78;}
-.disc-in a{color:rgba(184,150,12,0.7);}
+.disc{background:#111827;padding:24px 5%;border-top:1px solid rgba(255,255,255,0.05);}
+.disc-in{max-width:1200px;margin:0 auto;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:9px;padding:18px 22px;}
+.disc-in h4{font-size:0.67rem;font-weight:700;color:var(--gold-light);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:7px;}
+.disc-in p{font-size:0.67rem;color:rgba(255,255,255,0.34);line-height:1.8;}
+.disc-in a{color:rgba(197,168,0,0.62);}
 
 /* ── ANIMATIONS ── */
-.fu{opacity:0;transform:translateY(26px);transition:opacity 0.6s ease,transform 0.6s ease;}
+.fu{opacity:0;transform:translateY(22px);transition:opacity 0.6s ease,transform 0.6s ease;}
 .fu.vis{opacity:1;transform:translateY(0);}
 
 /* ── RESPONSIVE ── */
-@media(max-width:900px){
-  .hero-inner{grid-template-columns:1fr;gap:40px;padding:60px 5%;}
-  .svc-grid{grid-template-columns:1fr 1fr;}
+@media(max-width:960px){
+  .hero-inner{grid-template-columns:1fr;gap:38px;padding:64px 5%;}
   .steps{grid-template-columns:1fr 1fr;gap:26px;}
   .steps::before{display:none;}
-  .cbody.active{grid-template-columns:1fr;}
-  .about-g{grid-template-columns:1fr;}
+  .cplane.active{grid-template-columns:1fr;}
+  .cin-side{border-right:none;border-bottom:1px solid var(--border);}
+  .why-grid{grid-template-columns:1fr;}
   .contact-g{grid-template-columns:1fr;}
-  .fg-grid{grid-template-columns:1fr 1fr;gap:26px;}
+  .fg-grid{grid-template-columns:1fr 1fr;gap:24px;}
   .cta-div{display:none;}
   .cta-txt{text-align:center;}
   nav .nav-links{display:none;}
   .hbg{display:flex;}
+  .h-card{grid-template-columns:60px 1fr;}
+  .h-card-arrow{display:none;}
+  .num-inp{width:74px;}
+  .prod-grid{grid-template-columns:1fr 1fr;}
+  .svc-grid-col{grid-template-columns:1fr 1fr;}
+  .pc-pms{grid-column:1/3 !important;}
 }
 @media(max-width:600px){
-  .svc-grid,.steps{grid-template-columns:1fr;}
-  .about-vis{grid-template-columns:1fr 1fr;}
+  .steps{grid-template-columns:1fr;}
+  .why-cards{grid-template-columns:1fr 1fr;}
   .fg-grid{grid-template-columns:1fr;}
   .fr{grid-template-columns:1fr;}
-  .h-ctas{flex-direction:column;}
-  .h-ctas a,.h-ctas button{width:100%;justify-content:center;text-align:center;}
+  .ctab{font-size:0.78rem;padding:14px 4px;}
+  .sip-mode-row{flex-wrap:wrap;}
+  .range-with-input{flex-direction:column;align-items:stretch;}
+  .num-inp{width:100%;text-align:left;}
+  .prod-grid{grid-template-columns:1fr;}
+  .svc-grid-col{grid-template-columns:1fr;}
+  .pc-pms{grid-column:auto !important;}
+  .h-headline{font-size:clamp(2.4rem,10vw,3.2rem);}
 }
 </style>
 </head>
@@ -281,30 +352,23 @@ footer{background:#162238;color:rgba(255,255,255,0.52);padding:52px 5% 0;}
 <nav id="mainnav">
   <a href="#home" class="nav-logo">
     <img src="data:image/png;base64,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" alt="INDividend Finserv Logo">
-    <div><div class="nb-name">IN<span>Dividend</span> Finserv</div><div class="nb-sub">ARN-331134 &middot; AMFI Registered MFD</div></div>
+    <div><div class="nb-name">INDividend Finserv</div></div>
   </a>
   <ul class="nav-links">
     <li><a href="#home">Home</a></li>
-    <li><a href="#services">Services</a></li>
+    <li><a href="#offerings">Products</a></li>
     <li><a href="#calculator">Calculator</a></li>
-    <li><a href="#about">About</a></li>
+    <li><a href="#why">About</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="https://forms.zohopublic.in/individend/form/ClientIntake/formperma/signup" target="_blank" class="nav-cta">Get Started &rarr;</a></li>
   </ul>
   <div class="hbg" onclick="tmenu()"><span></span><span></span><span></span></div>
 </nav>
 <div class="mob-nav" id="mm">
   <a href="#home" onclick="tmenu()">Home</a>
-  <a href="#services" onclick="tmenu()">Services</a>
+  <a href="#offerings" onclick="tmenu()">Products</a>
   <a href="#calculator" onclick="tmenu()">Calculator</a>
-  <a href="#about" onclick="tmenu()">About</a>
+  <a href="#why" onclick="tmenu()">About</a>
   <a href="#contact" onclick="tmenu()">Contact</a>
-  <a href="https://forms.zohopublic.in/individend/form/ClientIntake/formperma/signup" target="_blank" class="mc" onclick="tmenu()">Get Started &rarr;</a>
-</div>
-
-<!-- COMPLIANCE STRIP -->
-<div class="compliance-strip">
-  &#9888;&nbsp; Mutual Fund investments are subject to market risks. Please read all scheme-related documents carefully before investing. &nbsp;|&nbsp; AMFI Registered MFD &middot; ARN-331134 &nbsp;|&nbsp; Not a SEBI-Registered Investment Adviser
 </div>
 
 <!-- HERO -->
@@ -315,71 +379,126 @@ footer{background:#162238;color:rgba(255,255,255,0.52);padding:52px 5% 0;}
   <div class="hero-inner">
     <div>
       <div class="h-eyebrow">AMFI Registered MFD &middot; ARN-331134</div>
-      <h1 class="h-headline">Your Goals.<br>Our <span class="gold ul">Support.</span><br>Growing Together.</h1>
-      <p class="h-sub">Distributing Mutual Funds, Insurance, NPS, FDs, Bonds and Loans &mdash; helping families across India build wealth with discipline, clarity and trust.</p>
-      <div class="h-badges">
-        <span class="hb g">SEBI Compliant</span>
-        <span class="hb">Mutual Funds</span>
-        <span class="hb">SIF &amp; NPS</span>
-        <span class="hb">Insurance</span>
-        <span class="hb">Loans</span>
-        <span class="hb">PMS</span>
-      </div>
-      <div class="h-ctas">
-        <a href="https://forms.zohopublic.in/individend/form/ClientIntake/formperma/signup" target="_blank" class="btn-p">Start Investing Today &rarr;</a>
-        <a href="#calculator" class="btn-o">Plan with Calculator</a>
-      </div>
-      <span class="tagline">&ldquo;Second best time to invest is TODAY&rdquo;</span>
+      <h1 class="h-headline">
+        Your Goals.<br>Our <span class="hl">Support.</span><br>Growing Together.
+      </h1>
+      <span class="h-tagline">&ldquo;The best time to invest is today.&rdquo;</span>
     </div>
     <div class="hero-card fu">
-      <div class="hc-lbl">Scan &amp; Begin &mdash; Takes 3 Minutes</div>
+      <div class="hc-badge">Scan &amp; Begin &mdash; Takes 3 Minutes</div>
       <div class="hc-title">Start Your Journey</div>
-      <div class="hc-sub">Scan the QR code to get started</div>
+      <div class="hc-sub">Scan the QR code to begin investing</div>
       <div class="qr-wrap">
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A%2F%2Findividend.in&color=1E2D4E&bgcolor=FFFFFF&qzone=2" alt="Scan to visit individend.in" width="172" height="172" loading="lazy">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A%2F%2Fwww.assetplus.in%2Fmfd%2FARN-331134&color=1E2D4E&bgcolor=FFFFFF&qzone=2" alt="Scan QR to start investing" width="168" height="168" loading="lazy">
       </div>
-      <div class="hc-url">individend.in</div>
-      <div class="hc-stats">
-        <div class="hcs"><div class="hcs-n">&#8377;0</div><div class="hcs-l">Advisory Fees &mdash; We earn via AMC commissions</div></div>
-        <div class="hcs"><div class="hcs-n">15+</div><div class="hcs-l">AMC Partners</div></div>
-        <div class="hcs"><div class="hcs-n">Goal</div><div class="hcs-l">Based portfolio approach</div></div>
-        <div class="hcs"><div class="hcs-n">SIP</div><div class="hcs-l">Step-Up &amp; Lumpsum</div></div>
-      </div>
+      <a href="https://www.assetplus.in/mfd/ARN-331134" target="_blank" class="hc-cta">Start Investing Today &rarr;</a>
     </div>
   </div>
 </section>
 
-<!-- TRUST BAR -->
-<div class="trust-bar">
-  <div class="trust-inner">
-    <div class="ti"><div class="ti-icon">&#128737;</div><span><strong>AMFI Registered</strong> MFD &middot; ARN-331134</span></div>
-    <div class="tsep"></div>
-    <div class="ti"><div class="ti-icon">&#128203;</div><span><strong>SEBI</strong> Regulated</span></div>
-    <div class="tsep"></div>
-    <div class="ti"><div class="ti-icon">&#128274;</div><span><strong>Commission Disclosed</strong></span></div>
-    <div class="tsep"></div>
-    <div class="ti"><div class="ti-icon">&#9889;</div><span><strong>SCORES</strong> Grievance Portal</span></div>
-    <div class="tsep"></div>
-    <div class="ti"><div class="ti-icon">&#127760;</div><span><strong>individend.in</strong> &middot; Tirupati, AP</span></div>
-  </div>
-</div>
-
-<!-- SERVICES -->
-<section id="services">
+<!-- PRODUCTS & SERVICES -->
+<section id="offerings">
   <div class="si">
-    <div class="fu">
-      <span class="s-eye">What We Distribute</span>
-      <h2 class="s-title">Financial Products &amp; Services</h2>
-      <p class="s-sub">We facilitate access to SEBI-regulated and IRDAI-regulated financial products tailored to your life goals.</p>
+    <div class="off-header fu">
+      <span class="s-eye" style="text-align:center;display:block;">What We Do</span>
+      <h2 class="s-title" style="text-align:center;margin:0 auto 12px;">Products &amp; Services</h2>
+      <p class="s-sub" style="margin:0 auto;">We connect you to SEBI and IRDAI-regulated financial products, and provide goal-oriented support across every stage of your financial journey.</p>
     </div>
-    <div class="svc-grid">
-      <div class="svc fu"><div class="svc-icon">&#128200;</div><h3>Mutual Funds &amp; SIF</h3><p>Equity, Debt, Hybrid and Specialised Investment Funds across 15+ AMCs for every risk profile and time horizon.</p><div class="svc-tags"><span class="st">Equity</span><span class="st">Debt</span><span class="st">Hybrid</span><span class="st">SIF</span><span class="st">ELSS</span></div></div>
-      <div class="svc fu"><div class="svc-icon">&#127963;</div><h3>NPS &middot; FDs &middot; Bonds</h3><p>National Pension System for retirement, Fixed Deposits and Government / Corporate Bonds for stable growth.</p><div class="svc-tags"><span class="st">NPS Tier I &amp; II</span><span class="st">Corp Bonds</span><span class="st">Govt Securities</span></div></div>
-      <div class="svc fu"><div class="svc-icon">&#128737;</div><h3>Insurance</h3><p>Life and Health insurance from India&rsquo;s leading insurers &mdash; protecting what matters most to you and your family.</p><div class="svc-tags"><span class="st">Term Life</span><span class="st">Health Cover</span><span class="st">Critical Illness</span></div></div>
-      <div class="svc fu"><div class="svc-icon">&#127968;</div><h3>Loans</h3><p>We facilitate Home, Education, Vehicle, LAMF and Debt Consolidation loans to help you achieve life milestones.</p><div class="svc-tags"><span class="st">Home Loan</span><span class="st">Education</span><span class="st">Vehicle</span><span class="st">LAMF</span><span class="st">Debt Consolidation</span></div></div>
-      <div class="svc fu"><div class="svc-icon">&#127919;</div><h3>Goal-Based Investing</h3><p>Retirement, child education, marriage fund, wealth creation &mdash; connecting your goals to the right financial products.</p><div class="svc-tags"><span class="st">Retirement</span><span class="st">Child Education</span><span class="st">Marriage</span><span class="st">Wealth Creation</span></div></div>
-      <div class="svc fu"><div class="svc-icon">&#128269;</div><h3>Portfolio Review &amp; Rebalancing</h3><p>Periodic reviews to assess performance, alignment with goals, and rebalancing opportunities for your portfolio.</p><div class="svc-tags"><span class="st">Review</span><span class="st">Rebalancing</span><span class="st">PMS Facilitation</span></div></div>
+
+    <!-- PRODUCTS -->
+    <div class="cat-section-label fu">
+      <div class="csl-line"></div>
+      <div class="csl-badge">&#128200; Products &mdash; SEBI &amp; IRDAI Regulated</div>
+      <div class="csl-line"></div>
     </div>
+
+    <div class="prod-grid fu">
+
+      <div class="pc pc-mf">
+        <span class="pc-emoji">&#128200;</span>
+        <div class="pc-title">Mutual Funds &amp; SIF</div>
+        <div class="pc-desc">Equity, Debt, Hybrid and Specialised Investment Funds across leading AMCs — for every risk profile and time horizon.</div>
+        <div class="pc-tags">
+          <span class="pct">Equity</span><span class="pct">Debt</span><span class="pct">Hybrid</span><span class="pct">ELSS</span><span class="pct">SIF</span><span class="pct">Index Funds</span>
+        </div>
+      </div>
+
+      <div class="pc pc-nps">
+        <span class="pc-emoji">&#127963;</span>
+        <div class="pc-title">NPS · Fixed Deposits · Bonds</div>
+        <div class="pc-desc">National Pension System for retirement security, Corporate &amp; Government Bonds and Fixed Deposits for stable, predictable growth.</div>
+        <div class="pc-tags">
+          <span class="pct">NPS Tier I &amp; II</span><span class="pct">Corporate Bonds</span><span class="pct">Govt Securities</span><span class="pct">Corp FD</span>
+        </div>
+      </div>
+
+      <div class="pc pc-ins">
+        <span class="pc-emoji">&#128737;</span>
+        <div class="pc-title">Insurance</div>
+        <div class="pc-desc">Life and Health insurance from India's leading insurers. We help you find the right cover to protect what matters most — you and your family.</div>
+        <div class="pc-tags">
+          <span class="pct">Term Life</span><span class="pct">Health Cover</span><span class="pct">Critical Illness</span><span class="pct">Family Floater</span>
+        </div>
+      </div>
+
+      <div class="pc pc-loan">
+        <span class="pc-emoji">&#127968;</span>
+        <div class="pc-title">Loans</div>
+        <div class="pc-desc">Home Loans (new purchase, balance transfer, top-up), Education, Vehicle and Debt Consolidation loans through trusted DSA partnerships.</div>
+        <div class="pc-tags">
+          <span class="pct">Home Loan</span><span class="pct">BT &amp; Top-Up</span><span class="pct">Education</span><span class="pct">Vehicle</span><span class="pct">LAMF</span>
+        </div>
+      </div>
+
+      <div class="pc pc-pms" style="grid-column:2/4;">
+        <span class="pc-emoji">&#128084;</span>
+        <div class="pc-title">PMS — Portfolio Management Services</div>
+        <div class="pc-desc">For HNI investors seeking professionally managed, high-conviction portfolios. We facilitate access to leading PMS providers for eligible investors (min. ₹50 Lakhs).</div>
+        <div class="pc-tags">
+          <span class="pct">HNI Portfolios</span><span class="pct">High Conviction</span><span class="pct">Equity PMS</span><span class="pct">Multi-Asset</span><span class="pct">Min ₹50L</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SERVICES -->
+    <div class="cat-section-label fu" style="margin-top:56px;">
+      <div class="csl-line"></div>
+      <div class="csl-badge">&#127919; Client Services &mdash; Goal-First &amp; Ongoing</div>
+      <div class="csl-line"></div>
+    </div>
+
+    <div class="svc-grid-col fu">
+
+      <div class="pc pc-goal">
+        <span class="pc-emoji">&#127919;</span>
+        <div class="pc-title">Goal-Based Investing</div>
+        <div class="pc-desc">Connect your financial goals — child education, marriage fund, home purchase, wealth creation — to the right products with structured timelines and milestone tracking.</div>
+        <div class="pc-tags">
+          <span class="pct">Child Education</span><span class="pct">Marriage Fund</span><span class="pct">Wealth Creation</span><span class="pct">Home Purchase</span>
+        </div>
+      </div>
+
+      <div class="pc pc-ret">
+        <span class="pc-emoji">&#127956;</span>
+        <div class="pc-title">Retirement Planning</div>
+        <div class="pc-desc">Building a corpus that sustains you in retirement requires early action and the right mix. We map your retirement income needs to SIPs, NPS, SWPs and annuities.</div>
+        <div class="pc-tags">
+          <span class="pct">NPS</span><span class="pct">SIP to SWP</span><span class="pct">Retirement Corpus</span><span class="pct">Monthly Income</span>
+        </div>
+      </div>
+
+      <div class="pc pc-rev">
+        <span class="pc-emoji">&#128269;</span>
+        <div class="pc-title">Portfolio Review &amp; Rebalancing</div>
+        <div class="pc-desc">Periodic reviews to track performance against your goals, identify allocation drift and rebalance proactively so your portfolio stays on track through every market cycle.</div>
+        <div class="pc-tags">
+          <span class="pct">Annual Review</span><span class="pct">Rebalancing</span><span class="pct">Performance Tracking</span>
+        </div>
+      </div>
+
+    </div>
+
   </div>
 </section>
 
@@ -392,10 +511,10 @@ footer{background:#162238;color:rgba(255,255,255,0.52);padding:52px 5% 0;}
       <p class="s-sub" style="margin:0 auto;text-align:center;">A clear, transparent, client-first process from the moment you reach out.</p>
     </div>
     <div class="steps">
-      <div class="step fu"><div class="step-n">1</div><h3>Connect</h3><p>Reach out via the sign-up form, phone or email. We schedule a no-obligation discovery call.</p></div>
-      <div class="step fu"><div class="step-n">2</div><h3>Understand</h3><p>We understand your financial goals, risk profile, existing investments and time horizon.</p></div>
-      <div class="step fu"><div class="step-n">3</div><h3>Connect Products</h3><p>We facilitate suitable SEBI-regulated products aligned with your goals and risk appetite.</p></div>
-      <div class="step fu"><div class="step-n">4</div><h3>Review &amp; Monitor</h3><p>Regular reviews and rebalancing to keep your portfolio aligned as your goals evolve.</p></div>
+      <div class="step fu"><div class="step-n">1</div><h3>Connect</h3><p>Reach out via the form, phone or scan the QR. We schedule a no-obligation discovery call.</p></div>
+      <div class="step fu"><div class="step-n">2</div><h3>Understand</h3><p>We understand your goals, risk profile, existing investments and time horizon.</p></div>
+      <div class="step fu"><div class="step-n">3</div><h3>Match Products</h3><p>We facilitate SEBI-regulated products aligned to your goals and risk appetite.</p></div>
+      <div class="step fu"><div class="step-n">4</div><h3>Review &amp; Grow</h3><p>Regular reviews and rebalancing keep your portfolio aligned as your goals evolve.</p></div>
     </div>
   </div>
 </section>
@@ -403,147 +522,226 @@ footer{background:#162238;color:rgba(255,255,255,0.52);padding:52px 5% 0;}
 <!-- CALCULATOR -->
 <section id="calculator">
   <div class="si">
-    <div class="fu">
-      <span class="s-eye">Investment Calculator</span>
-      <h2 class="s-title">See Your Money Grow</h2>
-      <p class="s-sub">Project your wealth with SIP (with annual step-up), Lumpsum, or a combination of both.</p>
+    <div class="calc-hd fu">
+      <span class="s-eye" style="text-align:center;display:block;">Investment Calculator</span>
+      <h2 class="s-title" style="text-align:center;margin:0 auto 10px;">See Your Money Grow</h2>
+      <p class="s-sub">Project your wealth with the SIP or SWP calculator. Use the sliders <em>or</em> type directly into the input boxes.</p>
     </div>
-    <div class="calc-wrap fu">
-      <div class="calc-tabs">
-        <button class="ctab active" onclick="stab('sip')">&#128200; SIP with Step-Up</button>
-        <button class="ctab" onclick="stab('ls')">&#128176; Lumpsum</button>
-        <button class="ctab" onclick="stab('co')">&#9889; SIP + Lumpsum</button>
+    <div class="calc-shell fu">
+      <div class="calc-nav">
+        <button class="ctab active" onclick="stab('sip')">&#128200; SIP Calculator</button>
+        <button class="ctab" onclick="stab('swp')">&#128715; SWP Calculator</button>
       </div>
-      <!-- SIP -->
-      <div class="cbody active" id="t-sip">
-        <div class="c-inputs">
-          <div class="ig"><label class="il">Monthly SIP Amount <span class="iv" id="sv1">&#8377;10,000</span></label><input type="range" id="sr1" min="500" max="200000" step="500" value="10000" oninput="cSIP()"></div>
-          <div class="ig"><label class="il">Annual Step-Up <span class="iv" id="sv2">10%</span></label><input type="range" id="sr2" min="0" max="30" step="1" value="10" oninput="cSIP()"></div>
-          <div class="ig"><label class="il">Expected Return p.a. <span class="iv" id="sv3">12%</span></label><input type="range" id="sr3" min="6" max="24" step="0.5" value="12" oninput="cSIP()"></div>
-          <div class="ig"><label class="il">Investment Period <span class="iv" id="sv4">15 Years</span></label><input type="range" id="sr4" min="1" max="40" step="1" value="15" oninput="cSIP()"></div>
-          <p class="cdis">&#9888; Returns are indicative only. Mutual fund investments are subject to market risks. Past performance does not guarantee future returns. Please read all scheme-related documents carefully.</p>
-        </div>
-        <div class="c-result">
-          <div class="rl">Estimated Corpus at Maturity</div><div class="rv" id="sr-c">&#8377;0</div>
-          <div class="rrows">
-            <div class="rr"><span>Total Invested</span><span id="sr-i">&#8377;0</span></div>
-            <div class="rr gain"><span>Estimated Gains</span><span id="sr-g">&#8377;0</span></div>
-            <div class="rr"><span>Wealth Ratio</span><span id="sr-r">0x</span></div>
+
+      <!-- SIP PANEL -->
+      <div class="cplane active" id="t-sip">
+        <div class="cin-side">
+          <h3>SIP &mdash; Systematic Investment Plan</h3>
+          <p class="cdesc">Choose your SIP mode: regular monthly SIP, with an annual step-up, or a one-time lumpsum investment.</p>
+
+          <!-- SIP sub-mode tabs -->
+          <div class="sip-mode-row">
+            <button class="smode active" id="sm-sip" onclick="setSIPMode('sip')">Monthly SIP</button>
+            <button class="smode" id="sm-step" onclick="setSIPMode('step')">Step-Up SIP</button>
+            <button class="smode" id="sm-ls" onclick="setSIPMode('ls')">Lumpsum</button>
           </div>
-          <div class="donut-w">
-            <svg viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
-              <defs><linearGradient id="gg" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#B8960C"/><stop offset="100%" stop-color="#D4AC20"/></linearGradient></defs>
-              <circle cx="70" cy="70" r="52" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="19"/>
-              <circle cx="70" cy="70" r="52" fill="none" stroke="url(#gg)" stroke-width="19" stroke-dasharray="327" stroke-dashoffset="163" stroke-linecap="round" transform="rotate(-90 70 70)" id="sa"/>
-              <text x="70" y="66" text-anchor="middle" fill="#D4AC20" font-size="9.5" font-weight="700" font-family="Space Grotesk,sans-serif">Gains</text>
-              <text x="70" y="81" text-anchor="middle" fill="white" font-size="13" font-weight="800" font-family="Space Grotesk,sans-serif" id="sp">0%</text>
-            </svg>
+
+          <!-- Monthly SIP only -->
+          <div class="sip-field" id="sf-monthly">
+            <div class="ig">
+              <label class="il">Monthly SIP <span class="iv" id="sv1">&#8377;10,000</span></label>
+              <div class="range-with-input">
+                <input type="range" id="sr1" min="500" max="200000" step="500" value="10000" oninput="syncFromRange('sr1','si1',fmt_raw);cSIP()">
+                <input type="number" id="si1" class="num-inp" min="500" max="200000" step="500" value="10000" oninput="syncFromNum('si1','sr1','sv1',fmt);cSIP()" placeholder="Amount">
+              </div>
+            </div>
           </div>
-          <a href="https://forms.zohopublic.in/individend/form/ClientIntake/formperma/signup" target="_blank" class="rcta">Start This SIP Now &rarr;</a>
-        </div>
-      </div>
-      <!-- LUMPSUM -->
-      <div class="cbody" id="t-ls">
-        <div class="c-inputs">
-          <div class="ig"><label class="il">Lumpsum Amount <span class="iv" id="lv1">&#8377;5,00,000</span></label><input type="range" id="lr1" min="10000" max="10000000" step="10000" value="500000" oninput="cLS()"></div>
-          <div class="ig"><label class="il">Expected Return p.a. <span class="iv" id="lv2">12%</span></label><input type="range" id="lr2" min="6" max="24" step="0.5" value="12" oninput="cLS()"></div>
-          <div class="ig"><label class="il">Investment Period <span class="iv" id="lv3">10 Years</span></label><input type="range" id="lr3" min="1" max="40" step="1" value="10" oninput="cLS()"></div>
+
+          <!-- Step-Up % (shown only in step mode) -->
+          <div class="sip-field hidden" id="sf-stepup">
+            <div class="ig">
+              <label class="il">Annual Step-Up % <span class="iv" id="sv2">10%</span></label>
+              <div class="range-with-input">
+                <input type="range" id="sr2" min="0" max="30" step="1" value="10" oninput="syncFromRange('sr2','si2',fmtPct);cSIP()">
+                <input type="number" id="si2" class="num-inp" min="0" max="30" step="1" value="10" oninput="syncFromNum('si2','sr2','sv2',fmtPct);cSIP()" placeholder="%">
+              </div>
+            </div>
+          </div>
+
+          <!-- Lumpsum (shown only in ls mode) -->
+          <div class="sip-field hidden" id="sf-lumpsum">
+            <div class="ig">
+              <label class="il">Lumpsum Amount <span class="iv" id="sv_ls">&#8377;5,00,000</span></label>
+              <div class="range-with-input">
+                <input type="range" id="sr_ls" min="10000" max="10000000" step="10000" value="500000" oninput="syncFromRange('sr_ls','si_ls',fmt_raw);cSIP()">
+                <input type="number" id="si_ls" class="num-inp" min="10000" max="10000000" step="10000" value="500000" oninput="syncFromNum('si_ls','sr_ls','sv_ls',fmt);cSIP()" placeholder="Amount">
+              </div>
+            </div>
+          </div>
+
+          <!-- Common: rate & years -->
+          <div class="ig">
+            <label class="il">Expected Return p.a. <span class="iv" id="sv3">12%</span></label>
+            <div class="range-with-input">
+              <input type="range" id="sr3" min="6" max="24" step="0.5" value="12" oninput="syncFromRange('sr3','si3',fmtPct);cSIP()">
+              <input type="number" id="si3" class="num-inp" min="6" max="24" step="0.5" value="12" oninput="syncFromNum('si3','sr3','sv3',fmtPct);cSIP()" placeholder="%">
+            </div>
+          </div>
+          <div class="ig">
+            <label class="il">Period <span class="iv" id="sv4">15 Yrs</span></label>
+            <div class="range-with-input">
+              <input type="range" id="sr4" min="1" max="40" step="1" value="15" oninput="syncFromRange('sr4','si4',fmtYrs);cSIP()">
+              <input type="number" id="si4" class="num-inp" min="1" max="40" step="1" value="15" oninput="syncFromNum('si4','sr4','sv4',fmtYrs);cSIP()" placeholder="Yrs">
+            </div>
+          </div>
           <p class="cdis">&#9888; Returns are indicative only. Mutual fund investments are subject to market risks. Past performance does not guarantee future returns.</p>
         </div>
-        <div class="c-result">
-          <div class="rl">Estimated Maturity Value</div><div class="rv" id="lr-c">&#8377;0</div>
-          <div class="rrows">
-            <div class="rr"><span>Amount Invested</span><span id="lr-i">&#8377;0</span></div>
-            <div class="rr gain"><span>Estimated Gains</span><span id="lr-g">&#8377;0</span></div>
-            <div class="rr"><span>CAGR</span><span id="lr-r">0%</span></div>
+        <div class="cout-side">
+          <div class="corpus-box">
+            <div class="cl">Estimated Corpus</div><div class="cv" id="sr-c">&#8377;0</div>
+            <div class="rrows">
+              <div class="rr"><span>Total Invested</span><span id="sr-i">&#8377;0</span></div>
+              <div class="rr gain"><span>Estimated Gains</span><span id="sr-g">&#8377;0</span></div>
+              <div class="rr"><span>Wealth Multiple</span><span id="sr-r">0x</span></div>
+            </div>
+            <div class="mini-chart"><canvas id="sipChart"></canvas></div>
           </div>
-          <div class="donut-w">
-            <svg viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="70" cy="70" r="52" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="19"/>
-              <circle cx="70" cy="70" r="52" fill="none" stroke="url(#gg)" stroke-width="19" stroke-dasharray="327" stroke-dashoffset="163" stroke-linecap="round" transform="rotate(-90 70 70)" id="la"/>
-              <text x="70" y="66" text-anchor="middle" fill="#D4AC20" font-size="9.5" font-weight="700" font-family="Space Grotesk,sans-serif">Gains</text>
-              <text x="70" y="81" text-anchor="middle" fill="white" font-size="13" font-weight="800" font-family="Space Grotesk,sans-serif" id="lp">0%</text>
-            </svg>
+          <div class="nudge" id="sipNudge">
+            <div class="nudge-ttl">&#128161; Power of Compounding</div>
+            <div class="nudge-txt" id="sipNudgeTxt">Calculating&hellip;</div>
+            <button class="nbtn" id="sipNudgeBtn" onclick="doubleSIP()">Try &#xD7;2 Amount</button>
           </div>
-          <a href="https://forms.zohopublic.in/individend/form/ClientIntake/formperma/signup" target="_blank" class="rcta">Invest a Lumpsum Now &rarr;</a>
+          <a href="https://www.assetplus.in/mfd/ARN-331134" target="_blank" class="rcta">Start Investing Now &rarr;</a>
         </div>
       </div>
-      <!-- COMBINED -->
-      <div class="cbody" id="t-co">
-        <div class="c-inputs">
-          <div class="ig"><label class="il">Initial Lumpsum <span class="iv" id="cv1">&#8377;2,00,000</span></label><input type="range" id="cr1" min="0" max="5000000" step="10000" value="200000" oninput="cCO()"></div>
-          <div class="ig"><label class="il">Monthly SIP <span class="iv" id="cv2">&#8377;10,000</span></label><input type="range" id="cr2" min="0" max="200000" step="500" value="10000" oninput="cCO()"></div>
-          <div class="ig"><label class="il">Annual Step-Up <span class="iv" id="cv3">10%</span></label><input type="range" id="cr3" min="0" max="30" step="1" value="10" oninput="cCO()"></div>
-          <div class="ig"><label class="il">Expected Return p.a. <span class="iv" id="cv4">12%</span></label><input type="range" id="cr4" min="6" max="24" step="0.5" value="12" oninput="cCO()"></div>
-          <div class="ig"><label class="il">Investment Period <span class="iv" id="cv5">15 Years</span></label><input type="range" id="cr5" min="1" max="40" step="1" value="15" oninput="cCO()"></div>
-          <p class="cdis">&#9888; Returns are indicative only. Mutual fund investments are subject to market risks. Past performance does not guarantee future returns.</p>
+
+      <!-- SWP PANEL -->
+      <div class="cplane" id="t-swp">
+        <div class="cin-side">
+          <h3>Systematic Withdrawal Plan</h3>
+          <p class="cdesc">SWP lets you withdraw a fixed amount monthly from your corpus while the remainder continues to grow &mdash; ideal for retirement income planning.</p>
+          <div class="ig">
+            <label class="il">Total Corpus <span class="iv" id="wv1">&#8377;50,00,000</span></label>
+            <div class="range-with-input">
+              <input type="range" id="wr1" min="100000" max="100000000" step="100000" value="5000000" oninput="syncFromRange('wr1','wi1',fmt_raw);cSWP()">
+              <input type="number" id="wi1" class="num-inp" min="100000" max="100000000" step="100000" value="5000000" oninput="syncFromNum('wi1','wr1','wv1',fmt);cSWP()" placeholder="Corpus">
+            </div>
+          </div>
+          <div class="ig">
+            <label class="il">Monthly Withdrawal <span class="iv" id="wv2">&#8377;25,000</span></label>
+            <div class="range-with-input">
+              <input type="range" id="wr2" min="1000" max="500000" step="1000" value="25000" oninput="syncFromRange('wr2','wi2',fmt_raw);cSWP()">
+              <input type="number" id="wi2" class="num-inp" min="1000" max="500000" step="1000" value="25000" oninput="syncFromNum('wi2','wr2','wv2',fmt);cSWP()" placeholder="Amount">
+            </div>
+          </div>
+          <div class="ig">
+            <label class="il">Expected Return p.a. <span class="iv" id="wv3">10%</span></label>
+            <div class="range-with-input">
+              <input type="range" id="wr3" min="4" max="18" step="0.5" value="10" oninput="syncFromRange('wr3','wi3',fmtPct);cSWP()">
+              <input type="number" id="wi3" class="num-inp" min="4" max="18" step="0.5" value="10" oninput="syncFromNum('wi3','wr3','wv3',fmtPct);cSWP()" placeholder="%">
+            </div>
+          </div>
+          <div class="ig">
+            <label class="il">Period <span class="iv" id="wv4">20 Yrs</span></label>
+            <div class="range-with-input">
+              <input type="range" id="wr4" min="1" max="40" step="1" value="20" oninput="syncFromRange('wr4','wi4',fmtYrs);cSWP()">
+              <input type="number" id="wi4" class="num-inp" min="1" max="40" step="1" value="20" oninput="syncFromNum('wi4','wr4','wv4',fmtYrs);cSWP()" placeholder="Yrs">
+            </div>
+          </div>
+          <div class="swp-warning"><p>&#9888; If monthly withdrawal exceeds corpus growth rate, the corpus will deplete over time. The result panel shows whether your corpus sustains or runs out.</p></div>
         </div>
-        <div class="c-result">
-          <div class="rl">Total Estimated Corpus</div><div class="rv" id="cr-c">&#8377;0</div>
-          <div class="rrows">
-            <div class="rr"><span>Lumpsum Grown To</span><span id="cr-lg">&#8377;0</span></div>
-            <div class="rr"><span>SIP Grown To</span><span id="cr-sg">&#8377;0</span></div>
-            <div class="rr"><span>Total Invested</span><span id="cr-i">&#8377;0</span></div>
-            <div class="rr gain"><span>Estimated Gains</span><span id="cr-g">&#8377;0</span></div>
+        <div class="cout-side">
+          <div class="corpus-box">
+            <div class="cl">Remaining Corpus After Period</div><div class="cv" id="wr-c">&#8377;0</div>
+            <div class="rrows">
+              <div class="rr"><span>Starting Corpus</span><span id="wr-s">&#8377;0</span></div>
+              <div class="rr"><span>Total Withdrawn</span><span id="wr-w">&#8377;0</span></div>
+              <div class="rr gain"><span>Corpus Sustainability</span><span id="wr-stat">&#8212;</span></div>
+              <div class="rr"><span>Corpus Lasts Until</span><span id="wr-end">&#8212;</span></div>
+            </div>
+            <div class="mini-chart"><canvas id="swpChart"></canvas></div>
           </div>
-          <div class="donut-w">
-            <svg viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="70" cy="70" r="52" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="19"/>
-              <circle cx="70" cy="70" r="52" fill="none" stroke="url(#gg)" stroke-width="19" stroke-dasharray="327" stroke-dashoffset="163" stroke-linecap="round" transform="rotate(-90 70 70)" id="ca"/>
-              <text x="70" y="66" text-anchor="middle" fill="#D4AC20" font-size="9.5" font-weight="700" font-family="Space Grotesk,sans-serif">Gains</text>
-              <text x="70" y="81" text-anchor="middle" fill="white" font-size="13" font-weight="800" font-family="Space Grotesk,sans-serif" id="cp">0%</text>
-            </svg>
+          <div class="nudge" id="swpNudge">
+            <div class="nudge-ttl">&#128161; Retirement Planning Insight</div>
+            <div class="nudge-txt" id="swpNudgeTxt">Calculating&hellip;</div>
           </div>
-          <a href="https://forms.zohopublic.in/individend/form/ClientIntake/formperma/signup" target="_blank" class="rcta">Start Combined Strategy &rarr;</a>
+          <a href="https://www.assetplus.in/mfd/ARN-331134" target="_blank" class="rcta">Plan Your Retirement Income &rarr;</a>
         </div>
       </div>
-    </div>
+
+    </div><!-- /calc-shell -->
   </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about">
+<!-- WHY INDIVIDEND FINSERV -->
+<section id="why">
   <div class="si">
-    <div class="about-g">
-      <div class="about-vis fu">
-        <div class="am"><div class="am-n">AMFI</div><div class="am-l">Registered Mutual Fund Distributor</div></div>
-        <div class="am"><div class="am-n">ARN</div><div class="am-l">331134 &mdash; Your trust, our credential</div></div>
-        <div class="am"><div class="am-n">7+</div><div class="am-l">Financial product categories facilitated</div></div>
-        <div class="am"><div class="am-n">&#8377;0</div><div class="am-l">Fees to investors &mdash; commissions from AMCs</div></div>
+    <div class="why-grid">
+      <div class="fu">
+        <div class="why-cards">
+          <div class="wc">
+            <span class="wc-icon">&#128737;</span>
+            <div class="wc-val">AMFI</div>
+            <div class="wc-lbl">Registered Mutual Fund Distributor</div>
+          </div>
+          <div class="wc dk">
+            <span class="wc-icon">&#9889;</span>
+            <div class="wc-val">7+</div>
+            <div class="wc-lbl">Financial product categories for every life goal</div>
+          </div>
+          <div class="wc dk">
+            <span class="wc-icon">&#127919;</span>
+            <div class="wc-val">Goal</div>
+            <div class="wc-lbl">First approach &mdash; every product tied to your goals</div>
+          </div>
+          <div class="wc">
+            <span class="wc-icon">&#128274;</span>
+            <div class="wc-val">&#8377;0</div>
+            <div class="wc-lbl">Fees to you &mdash; fully disclosed, AMC-paid</div>
+          </div>
+          <div class="wc" style="grid-column:1/-1;">
+            <div class="trust-pills">
+              <div class="tpill"><span>&#10003;</span> SEBI Compliant</div>
+              <div class="tpill"><span>&#10003;</span> AMFI Registered</div>
+              <div class="tpill"><span>&#10003;</span> ARN-331134</div>
+              <div class="tpill"><span>&#10003;</span> Goal-First</div>
+              <div class="tpill"><span>&#10003;</span> Transparent</div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="fu">
         <span class="s-eye">Why INDividend Finserv</span>
         <h2 class="s-title">Built on Trust.<br>Driven by Your Goals.</h2>
-        <p class="s-sub">INDividend Finserv was founded to bridge the gap between Indians who want to invest wisely and the complexity of financial products. AMFI-registered MFD committed to transparent, compliant and goal-first distribution.</p>
-        <div class="a-pts">
-          <div class="apt"><div class="apt-i">&#127919;</div><div><h4>Goal-First Approach</h4><p>Every product facilitated is anchored to your specific financial goal &mdash; not commissions or product push.</p></div></div>
-          <div class="apt"><div class="apt-i">&#128203;</div><div><h4>Full Regulatory Compliance</h4><p>AMFI-registered under ARN-331134, operating strictly within SEBI guidelines for Mutual Fund Distributors.</p></div></div>
-          <div class="apt"><div class="apt-i">&#127758;</div><div><h4>Holistic Financial Access</h4><p>Mutual Funds to Insurance, NPS to Loans &mdash; one trusted partner for your entire financial journey.</p></div></div>
-          <div class="apt"><div class="apt-i">&#128274;</div><div><h4>Transparent Commission Disclosure</h4><p>Commissions earned from AMCs and product providers, fully disclosed as required by SEBI/AMFI regulations.</p></div></div>
+        <p class="s-sub">Founded to bridge the gap between Indians who want to invest wisely and the complexity of financial products. An AMFI-registered MFD committed to transparent, compliant, goal-first facilitation.</p>
+        <div class="why-pts">
+          <div class="wpt"><div class="wpt-i">&#127919;</div><div><h4>Goal-First Approach</h4><p>Every product we facilitate is anchored to your specific financial goal &mdash; not product push.</p></div></div>
+          <div class="wpt"><div class="wpt-i">&#128203;</div><div><h4>Full Regulatory Compliance</h4><p>AMFI-registered under ARN-331134, operating strictly within SEBI guidelines for Mutual Fund Distributors.</p></div></div>
+          <div class="wpt"><div class="wpt-i">&#127758;</div><div><h4>One Partner for Your Journey</h4><p>Mutual Funds to Insurance, NPS to Loans &mdash; we connect you to every product category you need.</p></div></div>
+          <div class="wpt"><div class="wpt-i">&#128084;</div><div><h4>B-30 &amp; Rural Reach</h4><p>Rooted in Telangana with a mission to bring quality financial access to India&rsquo;s growing markets beyond the top cities.</p></div></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
+<!-- CTA BANNER -->
 <section id="cta">
   <div class="si" style="position:relative;">
     <h2 class="s-title fu" style="text-align:center;color:#fff;">Ready to Start Building<br>Your Financial Future?</h2>
-    <p class="s-sub fu">Scan the QR code, fill the form, or call us. The best day to start was yesterday &mdash; the next best is <strong style="color:#D4AC20">today</strong>.</p>
+    <p class="s-sub fu">Scan the QR code or click the button below. The best time to start was yesterday &mdash; the next best is <strong style="color:var(--gold-light)">today</strong>.</p>
     <div class="cta-row">
       <div class="cta-qr fu">
-        <div class="qr-wrap" style="margin:0;padding:11px;">
-          <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A%2F%2Findividend.in&color=1E2D4E&bgcolor=FFFFFF&qzone=2" alt="Scan QR to visit individend.in" width="155" height="155" loading="lazy">
+        <div class="qr-wrap" style="margin:0;padding:12px;">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A%2F%2Fwww.assetplus.in%2Fmfd%2FARN-331134&color=1E2D4E&bgcolor=FFFFFF&qzone=2" alt="Scan QR to start investing" width="148" height="148" loading="lazy">
         </div>
-        <div class="cta-ql">Scan to get started</div>
-        <div style="color:rgba(255,255,255,0.32);font-size:0.68rem;margin-top:3px;">individend.in</div>
+        <div class="cta-ql">Scan to start investing</div>
       </div>
       <div class="cta-div"></div>
       <div class="cta-txt fu">
         <h3>&ldquo;Second best time<br>to invest is TODAY&rdquo;</h3>
         <p>Join investors across India building wealth with discipline, clarity and a trusted partner.</p>
-        <a href="https://forms.zohopublic.in/individend/form/ClientIntake/formperma/signup" target="_blank" class="btn-p">Sign Up Now &mdash; It&apos;s Free &rarr;</a>
+        <a href="https://www.assetplus.in/mfd/ARN-331134" target="_blank" class="btn-p">Start Investing Today &rarr;</a>
       </div>
     </div>
   </div>
@@ -555,7 +753,7 @@ footer{background:#162238;color:rgba(255,255,255,0.52);padding:52px 5% 0;}
     <div class="fu">
       <span class="s-eye">Get In Touch</span>
       <h2 class="s-title">Let&apos;s Talk About Your Goals</h2>
-      <p class="s-sub">Reach out to begin your investment journey or ask any questions about products we distribute.</p>
+      <p class="s-sub">Reach out to begin your investment journey or ask any questions about products we facilitate.</p>
     </div>
     <div class="contact-g">
       <div class="ci fu">
@@ -565,14 +763,13 @@ footer{background:#162238;color:rgba(255,255,255,0.52);padding:52px 5% 0;}
           <div class="cd"><div class="cd-i">&#128222;</div><div><div class="cdl">Phone</div><div class="cdv">+91 63015 23367</div></div></div>
           <div class="cd"><div class="cd-i">&#9993;</div><div><div class="cdl">Email</div><div class="cdv">ranjith@individend.in</div></div></div>
           <div class="cd"><div class="cd-i">&#127760;</div><div><div class="cdl">Website</div><div class="cdv">individend.in</div></div></div>
-          <div class="cd"><div class="cd-i">&#128205;</div><div><div class="cdl">Location</div><div class="cdv">Tirupati, Andhra Pradesh</div></div></div>
         </div>
-        <p style="font-size:0.74rem;font-weight:600;color:var(--text-mid);margin-bottom:9px;">FOLLOW US</p>
+        <p style="font-size:0.73rem;font-weight:600;color:var(--text-mid);margin-bottom:9px;">FOLLOW US</p>
         <div class="soc-row">
           <a href="https://instagram.com/individendfinserv" target="_blank" rel="noopener" class="sl" title="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
           <a href="https://youtube.com/@individendfinserv" target="_blank" rel="noopener" class="sl" title="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
           <a href="https://linkedin.com/company/individendfinserv" target="_blank" rel="noopener" class="sl" title="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
-          <a href="https://twitter.com/individendfs" target="_blank" rel="noopener" class="sl" title="X (Twitter)"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.261 5.636 5.903-5.636zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="https://twitter.com/individendfs" target="_blank" rel="noopener" class="sl" title="X"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.261 5.636 5.903-5.636zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
         </div>
       </div>
       <div class="cf fu">
@@ -587,14 +784,14 @@ footer{background:#162238;color:rgba(255,255,255,0.52);padding:52px 5% 0;}
             <option value="">Select a product / service</option>
             <option>Mutual Funds (SIP)</option><option>Mutual Funds (Lumpsum)</option>
             <option>NPS / Retirement Planning</option><option>Insurance (Life / Health)</option>
-            <option>FDs &amp; Bonds</option><option>Loans</option>
-            <option>Portfolio Review</option><option>Goal-Based Financial Planning</option><option>PMS</option>
+            <option>FDs &amp; Bonds</option><option>Loans</option><option>PMS</option>
+            <option>Portfolio Review</option><option>Goal-Based Financial Planning</option>
           </select>
         </div>
         <div class="fg"><label>Message</label><textarea id="fm" placeholder="Tell us briefly about your financial goals..."></textarea></div>
         <button class="bsub" onclick="submitF()">Send Message &rarr;</button>
         <div class="fok" id="fok">&#10003; Thank you! We&apos;ll reach out within 24 hours.</div>
-        <p style="font-size:0.69rem;color:var(--text-light);margin-top:9px;line-height:1.5;">By submitting, you consent to being contacted by INDividend Finserv regarding financial product distribution services. Your data will not be shared with third parties.</p>
+        <p style="font-size:0.68rem;color:var(--text-light);margin-top:9px;line-height:1.5;">By submitting, you consent to being contacted by INDividend Finserv regarding financial product distribution services. Your data will not be shared with third parties.</p>
       </div>
     </div>
   </div>
@@ -604,26 +801,25 @@ footer{background:#162238;color:rgba(255,255,255,0.52);padding:52px 5% 0;}
 <footer>
   <div class="fg-grid">
     <div class="fb">
-      <div class="fbn">IN<span>Dividend</span> Finserv</div>
+      <div class="fbn">INDividend Finserv</div>
       <div class="farn">ARN-331134</div>
-      <p>AMFI Registered Mutual Fund Distributor. Distributing Mutual Funds, SIF, NPS, FD, Bonds, Insurance, Loans and PMS across India.</p>
+      <p>AMFI Registered Mutual Fund Distributor. Facilitating Mutual Funds, SIF, NPS, FD, Bonds, Insurance, Loans and PMS across India.</p>
       <div class="soc-row" style="margin-top:13px;">
         <a href="https://instagram.com/individendfinserv" target="_blank" rel="noopener" class="sl" title="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
         <a href="https://youtube.com/@individendfinserv" target="_blank" rel="noopener" class="sl" title="YouTube"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
         <a href="https://linkedin.com/company/individendfinserv" target="_blank" rel="noopener" class="sl" title="LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
-        <a href="https://twitter.com/individendfs" target="_blank" rel="noopener" class="sl" title="X (Twitter)"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.261 5.636 5.903-5.636zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        <a href="https://twitter.com/individendfs" target="_blank" rel="noopener" class="sl" title="X"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.261 5.636 5.903-5.636zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
       </div>
     </div>
     <div class="fc">
       <h4>Products</h4>
-      <a href="#services">Mutual Funds &amp; SIF</a><a href="#services">NPS</a><a href="#services">FDs &amp; Bonds</a>
-      <a href="#services">Insurance</a><a href="#services">Loans</a><a href="#services">PMS</a>
+      <a href="#offerings">Mutual Funds &amp; SIF</a><a href="#offerings">NPS</a><a href="#offerings">FDs &amp; Bonds</a>
+      <a href="#offerings">Insurance</a><a href="#offerings">Loans</a><a href="#offerings">PMS</a>
     </div>
     <div class="fc">
       <h4>Services</h4>
-      <a href="#services">Goal-Based Investing</a><a href="#services">Retirement Planning</a>
-      <a href="#services">Child Education Fund</a><a href="#services">Portfolio Review</a>
-      <a href="#calculator">Investment Calculator</a>
+      <a href="#offerings">Goal-Based Investing</a><a href="#offerings">Retirement Planning</a>
+      <a href="#offerings">Portfolio Review</a><a href="#calculator">Investment Calculator</a>
     </div>
     <div class="fc">
       <h4>Regulatory</h4>
@@ -634,8 +830,7 @@ footer{background:#162238;color:rgba(255,255,255,0.52);padding:52px 5% 0;}
     </div>
   </div>
   <div class="fbot">
-    <p>&copy; 2025 INDividend Finserv &middot; ARN-331134 &middot; individend.in &middot; Tirupati, Andhra Pradesh, India</p>
-    <p style="margin-top:3px;">Registered with AMFI as Mutual Fund Distributor. Not a SEBI-Registered Investment Adviser.</p>
+    <p>&copy; 2025 INDividend Finserv &middot; ARN-331134 &middot; individend.in</p>
   </div>
 </footer>
 
@@ -644,98 +839,264 @@ footer{background:#162238;color:rgba(255,255,255,0.52);padding:52px 5% 0;}
   <div class="disc-in">
     <h4>&#9888; Important Disclaimer &mdash; Please Read Carefully</h4>
     <p>
-      <strong style="color:rgba(255,255,255,0.62);">INDividend Finserv (ARN-331134)</strong> is registered with AMFI as a Mutual Fund Distributor. We are NOT a SEBI-Registered Investment Adviser (RIA). We distribute financial products and do not provide investment advice or portfolio management services.
+      The investment calculators on this website are for illustrative purposes only. Actual returns may vary significantly. This website does not constitute an offer or solicitation to buy or sell any financial product. Insurance products are subject to IRDAI guidelines. Loans are subject to lending institution terms.
       <br><br>
-      <strong style="color:rgba(255,255,255,0.62);">Mutual Fund investments are subject to market risks.</strong> Please read all Scheme Information Documents (SID), Key Information Memoranda (KIM) and Statement of Additional Information (SAI) carefully before investing. Past performance is not indicative of future returns. There is no guarantee or assurance of returns.
-      <br><br>
-      The investment calculators on this website are for illustrative purposes only. Actual returns may vary significantly. This website does not constitute an offer or solicitation to buy or sell any financial product. We earn commissions/trail fees from AMCs and product manufacturers, disclosed as required by SEBI/AMFI. Insurance products are subject to IRDAI guidelines. Loans are subject to lending institution terms.
-      <br><br>
-      Grievances: <strong style="color:rgba(255,255,255,0.52);">ranjith@individend.in</strong> &nbsp;|&nbsp; SEBI SCORES: <a href="https://scores.sebi.gov.in" target="_blank" rel="noopener">scores.sebi.gov.in</a> &nbsp;|&nbsp; Helpline: 1800-266-7575 &nbsp;|&nbsp; <a href="https://www.amfiindia.com" target="_blank" rel="noopener">amfiindia.com</a> &nbsp;|&nbsp; <a href="https://www.sebi.gov.in" target="_blank" rel="noopener">sebi.gov.in</a>
+      Grievances: <strong style="color:rgba(255,255,255,0.5);">ranjith@individend.in</strong> &nbsp;|&nbsp; SEBI SCORES: <a href="https://scores.sebi.gov.in" target="_blank" rel="noopener">scores.sebi.gov.in</a> &nbsp;|&nbsp; Helpline: 1800-266-7575 &nbsp;|&nbsp; <a href="https://www.amfiindia.com" target="_blank" rel="noopener">amfiindia.com</a> &nbsp;|&nbsp; <a href="https://www.sebi.gov.in" target="_blank" rel="noopener">sebi.gov.in</a>
     </p>
   </div>
 </div>
 
 <script>
+// ── Chart instances ──
+let sipCh=null,swpCh=null;
+let sipMode='sip'; // 'sip' | 'step' | 'ls'
+
 function fmt(n){
-  if(n>=10000000)return'₹'+(n/10000000).toFixed(2)+' Cr';
-  if(n>=100000)return'₹'+(n/100000).toFixed(2)+' L';
-  if(n>=1000)return'₹'+(n/1000).toFixed(1)+'K';
-  return'₹'+Math.round(n).toLocaleString('en-IN');
+  if(n>=10000000) return '\u20B9'+(n/10000000).toFixed(2)+' Cr';
+  if(n>=100000)   return '\u20B9'+(n/100000).toFixed(2)+' L';
+  if(n>=1000)     return '\u20B9'+(n/1000).toFixed(1)+'K';
+  return '\u20B9'+Math.round(n).toLocaleString('en-IN');
 }
-function rng(el){const p=((el.value-el.min)/(el.max-el.min))*100;el.style.setProperty('--p',p+'%');}
-function dn(arcId,pctId,pct){
-  const c=2*Math.PI*52;
-  const a=document.getElementById(arcId);
-  const p=document.getElementById(pctId);
-  if(a)a.setAttribute('stroke-dashoffset',Math.max(0,c-(pct/100)*c).toFixed(1));
-  if(p)p.textContent=pct.toFixed(0)+'%';
+function fmt_raw(v){return v;}   // raw number → number (used for range→numInp)
+function fmtPct(v){return v;}
+function fmtYrs(v){return v;}
+function fmtLabel(v,type){
+  if(type==='pct') return v+'%';
+  if(type==='yrs') return v+' Yrs';
+  return fmt(v);
 }
-function cSIP(){
-  const sip=+document.getElementById('sr1').value,step=+document.getElementById('sr2').value/100,rate=+document.getElementById('sr3').value/100/12,yrs=+document.getElementById('sr4').value;
-  document.getElementById('sv1').textContent=fmt(sip);
-  document.getElementById('sv2').textContent=document.getElementById('sr2').value+'%';
-  document.getElementById('sv3').textContent=document.getElementById('sr3').value+'%';
-  document.getElementById('sv4').textContent=yrs+' Yrs';
-  ['sr1','sr2','sr3','sr4'].forEach(id=>rng(document.getElementById(id)));
+
+function rng(el){
+  if(!el) return;
+  const p=((el.value-el.min)/(el.max-el.min))*100;
+  el.style.setProperty('--p',p+'%');
+}
+
+// Sync range → number input
+function syncFromRange(rangeId, numId, _fmt){
+  const r=document.getElementById(rangeId);
+  const n=document.getElementById(numId);
+  if(r&&n) n.value=r.value;
+  rng(r);
+}
+// Sync number input → range + label
+function syncFromNum(numId, rangeId, labelId, _fmt){
+  const n=document.getElementById(numId);
+  const r=document.getElementById(rangeId);
+  if(!n||!r) return;
+  let v=parseFloat(n.value)||0;
+  v=Math.max(parseFloat(r.min),Math.min(parseFloat(r.max),v));
+  n.value=v;
+  r.value=v;
+  rng(r);
+  // update label
+  if(labelId){
+    const el=document.getElementById(labelId);
+    if(el){
+      // determine format from id
+      if(labelId.includes('v2')||labelId.includes('v3')||labelId.includes('wv3')){el.textContent=v+'%';}
+      else if(labelId.includes('v4')||labelId.includes('wv4')){el.textContent=v+' Yrs';}
+      else{el.textContent=fmt(v);}
+    }
+  }
+}
+
+function mkChart(id,inst,lbls,inv,gns,swpMode){
+  const ctx=document.getElementById(id);
+  if(!ctx) return inst;
+  if(inst) inst.destroy();
+  if(swpMode){
+    return new Chart(ctx,{
+      type:'line',
+      data:{labels:lbls,datasets:[{label:'Corpus',data:inv,borderColor:'rgba(197,168,0,0.9)',backgroundColor:'rgba(197,168,0,0.12)',fill:true,tension:0.4,pointRadius:0,borderWidth:2}]},
+      options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},
+        scales:{x:{grid:{color:'rgba(255,255,255,0.05)'},ticks:{color:'rgba(255,255,255,0.4)',font:{size:9}}},
+                y:{grid:{color:'rgba(255,255,255,0.05)'},ticks:{color:'rgba(255,255,255,0.4)',font:{size:9},callback:v=>fmt(v)}}},
+        animation:{duration:400}}
+    });
+  }
+  return new Chart(ctx,{
+    type:'bar',
+    data:{labels:lbls,datasets:[
+      {label:'Invested',data:inv,backgroundColor:'rgba(255,255,255,0.12)',borderRadius:3,borderSkipped:false,stack:'a'},
+      {label:'Gains',data:gns,backgroundColor:'rgba(197,168,0,0.78)',borderRadius:3,borderSkipped:false,stack:'a'}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>(' '+fmt(ctx.raw))}}},
+      scales:{
+        x:{grid:{color:'rgba(255,255,255,0.05)'},ticks:{color:'rgba(255,255,255,0.4)',font:{size:9}},stacked:true},
+        y:{grid:{color:'rgba(255,255,255,0.05)'},ticks:{color:'rgba(255,255,255,0.4)',font:{size:9},callback:v=>fmt(v)},stacked:true}
+      },animation:{duration:400}}
+  });
+}
+
+function calcSIP(sip,stepPct,ratePct,yrs){
+  const rate=ratePct/100/12,step=stepPct/100;
   let c=0,inv=0,m=sip;
   for(let y=0;y<yrs;y++){for(let mo=0;mo<12;mo++){c=(c+m)*(1+rate);inv+=m;}m*=(1+step);}
-  const g=c-inv;
-  document.getElementById('sr-c').textContent=fmt(c);
-  document.getElementById('sr-i').textContent=fmt(inv);
-  document.getElementById('sr-g').textContent=fmt(g);
-  document.getElementById('sr-r').textContent=(c/inv).toFixed(2)+'x';
-  dn('sa','sp',(g/c)*100);
+  return {corpus:c,invested:inv,gain:c-inv};
 }
-function cLS(){
-  const ls=+document.getElementById('lr1').value,rate=+document.getElementById('lr2').value/100,yrs=+document.getElementById('lr3').value;
-  document.getElementById('lv1').textContent=fmt(ls);
-  document.getElementById('lv2').textContent=document.getElementById('lr2').value+'%';
-  document.getElementById('lv3').textContent=yrs+' Yrs';
-  ['lr1','lr2','lr3'].forEach(id=>rng(document.getElementById(id)));
-  const c=ls*Math.pow(1+rate,yrs),g=c-ls;
-  document.getElementById('lr-c').textContent=fmt(c);
-  document.getElementById('lr-i').textContent=fmt(ls);
-  document.getElementById('lr-g').textContent=fmt(g);
-  document.getElementById('lr-r').textContent=document.getElementById('lr2').value+'%';
-  dn('la','lp',(g/c)*100);
+function calcLS(ls,ratePct,yrs){
+  const c=ls*Math.pow(1+ratePct/100,yrs);
+  return {corpus:c,invested:ls,gain:c-ls};
 }
-function cCO(){
-  const ls=+document.getElementById('cr1').value,sip=+document.getElementById('cr2').value,step=+document.getElementById('cr3').value/100,rate=+document.getElementById('cr4').value/100,yrs=+document.getElementById('cr5').value,mr=rate/12;
-  document.getElementById('cv1').textContent=fmt(ls);
-  document.getElementById('cv2').textContent=fmt(sip);
-  document.getElementById('cv3').textContent=(step*100).toFixed(0)+'%';
-  document.getElementById('cv4').textContent=(rate*100).toFixed(1)+'%';
-  document.getElementById('cv5').textContent=yrs+' Yrs';
-  ['cr1','cr2','cr3','cr4','cr5'].forEach(id=>rng(document.getElementById(id)));
-  const lsg=ls*Math.pow(1+rate,yrs);
-  let sc=0,si=0,m=sip;
-  for(let y=0;y<yrs;y++){for(let mo=0;mo<12;mo++){sc=(sc+m)*(1+mr);si+=m;}m*=(1+step);}
-  const tot=lsg+sc,inv=ls+si,g=tot-inv;
-  document.getElementById('cr-c').textContent=fmt(tot);
-  document.getElementById('cr-lg').textContent=fmt(lsg);
-  document.getElementById('cr-sg').textContent=fmt(sc);
-  document.getElementById('cr-i').textContent=fmt(inv);
-  document.getElementById('cr-g').textContent=fmt(g);
-  dn('ca','cp',(g/tot)*100);
+
+function setSIPMode(mode){
+  sipMode=mode;
+  ['sip','step','ls'].forEach(m=>{
+    document.getElementById('sm-'+m).classList.toggle('active',m===mode);
+  });
+  document.getElementById('sf-monthly').classList.toggle('hidden',mode==='ls');
+  document.getElementById('sf-stepup').classList.toggle('hidden',mode!=='step');
+  document.getElementById('sf-lumpsum').classList.toggle('hidden',mode!=='ls');
+  // Update nudge button text
+  const btn=document.getElementById('sipNudgeBtn');
+  if(btn) btn.textContent=mode==='ls'?'Try \xD72 Lumpsum':'Try \xD72 SIP Amount';
+  cSIP();
 }
+
+function cSIP(){
+  const rate=+document.getElementById('sr3').value, yrs=+document.getElementById('sr4').value;
+  // sync labels
+  document.getElementById('sv3').textContent=rate+'%';
+  document.getElementById('sv4').textContent=yrs+' Yrs';
+  rng(document.getElementById('sr3'));
+  rng(document.getElementById('sr4'));
+
+  let r;
+  if(sipMode==='ls'){
+    const ls=+document.getElementById('sr_ls').value;
+    document.getElementById('sv_ls').textContent=fmt(ls);
+    rng(document.getElementById('sr_ls'));
+    r=calcLS(ls,rate,yrs);
+    // nudge
+    const dbl=calcLS(ls*2,rate,yrs);
+    document.getElementById('sipNudgeTxt').innerHTML='Investing <strong>'+fmt(ls*2)+'</strong> instead gives you <strong>'+fmt(dbl.corpus)+'</strong> \u2014 an extra <strong style="color:#4ADE80">'+fmt(dbl.corpus-r.corpus)+'</strong>. Compounding amplifies every rupee.';
+  } else {
+    const sip=+document.getElementById('sr1').value;
+    const step=(sipMode==='step')?+document.getElementById('sr2').value:0;
+    document.getElementById('sv1').textContent=fmt(sip);
+    document.getElementById('sv2').textContent=step+'%';
+    rng(document.getElementById('sr1'));
+    rng(document.getElementById('sr2'));
+    r=calcSIP(sip,step,rate,yrs);
+    // nudge
+    const dbl=calcSIP(sip*2,step,rate,yrs);
+    document.getElementById('sipNudgeTxt').innerHTML='Investing <strong>'+fmt(sip*2)+'/mo</strong> instead of '+fmt(sip)+' gives you <strong>'+fmt(dbl.corpus)+'</strong> \u2014 an extra <strong style="color:#4ADE80">'+fmt(dbl.corpus-r.corpus)+'</strong>.';
+  }
+
+  document.getElementById('sr-c').textContent=fmt(r.corpus);
+  document.getElementById('sr-i').textContent=fmt(r.invested);
+  document.getElementById('sr-g').textContent=fmt(r.gain);
+  document.getElementById('sr-r').textContent=(r.corpus/r.invested).toFixed(2)+'x';
+
+  // chart
+  const lbls=[],inv2=[],gns=[];
+  const step_pts=Math.min(yrs,20);
+  const interval=Math.ceil(yrs/step_pts);
+  for(let y=interval;y<=yrs;y+=interval){
+    let d;
+    if(sipMode==='ls') d=calcLS(+document.getElementById('sr_ls').value,rate,y);
+    else {
+      const s=+document.getElementById('sr1').value,st=(sipMode==='step')?+document.getElementById('sr2').value:0;
+      d=calcSIP(s,st,rate,y);
+    }
+    lbls.push(y+'y');inv2.push(Math.round(d.invested));gns.push(Math.round(d.gain));
+  }
+  sipCh=mkChart('sipChart',sipCh,lbls,inv2,gns);
+}
+
+function doubleSIP(){
+  if(sipMode==='ls'){
+    const el=document.getElementById('sr_ls');
+    const ni=document.getElementById('si_ls');
+    el.value=Math.min(+el.value*2,+el.max);
+    if(ni) ni.value=el.value;
+  } else {
+    const el=document.getElementById('sr1');
+    const ni=document.getElementById('si1');
+    el.value=Math.min(+el.value*2,+el.max);
+    if(ni) ni.value=el.value;
+  }
+  cSIP();
+}
+
+function cSWP(){
+  const corpus0=+document.getElementById('wr1').value,monthly=+document.getElementById('wr2').value,ratePct=+document.getElementById('wr3').value,yrs=+document.getElementById('wr4').value;
+  document.getElementById('wv1').textContent=fmt(corpus0);
+  document.getElementById('wv2').textContent=fmt(monthly);
+  document.getElementById('wv3').textContent=ratePct+'%';
+  document.getElementById('wv4').textContent=yrs+' Yrs';
+  ['wr1','wr2','wr3','wr4'].forEach(id=>rng(document.getElementById(id)));
+  const mrate=ratePct/100/12;
+  let corpus=corpus0,totalW=0,depletedAt=null;
+  const months=yrs*12;
+  const lbls=[],corpusLine=[];
+  const iv=Math.ceil(yrs/Math.min(yrs,20));
+  for(let mo=1;mo<=months;mo++){
+    corpus=corpus*(1+mrate)-monthly;
+    totalW+=monthly;
+    if(corpus<=0&&depletedAt===null){depletedAt=mo;corpus=0;}
+    if(mo%(iv*12)===0||mo===months){lbls.push(Math.round(mo/12)+'y');corpusLine.push(Math.max(0,Math.round(corpus)));}
+  }
+  const remaining=Math.max(0,corpus);
+  document.getElementById('wr-c').textContent=fmt(remaining);
+  document.getElementById('wr-s').textContent=fmt(corpus0);
+  document.getElementById('wr-w').textContent=fmt(totalW);
+  const statEl=document.getElementById('wr-stat');
+  const endEl=document.getElementById('wr-end');
+  if(depletedAt){
+    statEl.textContent='\u26A0 Corpus depletes';statEl.style.color='#f87171';
+    endEl.textContent='Month '+depletedAt+' (Year '+(Math.ceil(depletedAt/12))+')';
+    document.getElementById('swpNudgeTxt').innerHTML='At \u20B9'+monthly.toLocaleString('en-IN')+'/mo withdrawal, your corpus depletes in <strong>Year '+Math.ceil(depletedAt/12)+'</strong>. Consider reducing withdrawal to <strong>'+fmt(corpus0*ratePct/100/12)+'</strong>/mo to sustain the corpus indefinitely.';
+  } else {
+    statEl.textContent='\u2713 Corpus sustained';statEl.style.color='#4ADE80';
+    endEl.textContent='Sustains beyond '+yrs+' years';
+    document.getElementById('swpNudgeTxt').innerHTML='Your corpus of <strong>'+fmt(corpus0)+'</strong> sustains <strong>'+fmt(monthly)+'/mo</strong> for the full '+yrs+' years and leaves <strong style="color:#4ADE80">'+fmt(remaining)+'</strong> remaining. Great planning!';
+  }
+  swpCh=mkChart('swpChart',swpCh,lbls,corpusLine,null,true);
+}
+
 function stab(t){
-  ['sip','ls','co'].forEach((id,i)=>{
+  ['sip','swp'].forEach((id,i)=>{
     document.querySelectorAll('.ctab')[i].classList.toggle('active',id===t);
     document.getElementById('t-'+id).classList.toggle('active',id===t);
   });
+  if(t==='sip') setTimeout(cSIP,60);
+  else setTimeout(cSWP,60);
 }
+
 function tmenu(){document.getElementById('mm').classList.toggle('open');}
+
+// ── Contact form with email ──
 function submitF(){
   const n=document.getElementById('fn').value.trim(),p=document.getElementById('fp').value.trim();
   if(!n||!p){alert('Please fill in your name and mobile number.');return;}
+  const email=document.getElementById('fe').value.trim();
+  const interest=document.getElementById('fi').value;
+  const msg=document.getElementById('fm').value.trim();
+  const subject=encodeURIComponent('New Enquiry from '+n+' — INDividend Finserv Website');
+  const body=encodeURIComponent(
+    'Name: '+n+'\n'+
+    'Mobile: '+p+'\n'+
+    'Email: '+(email||'Not provided')+'\n'+
+    'Interested in: '+(interest||'Not specified')+'\n\n'+
+    'Message:\n'+(msg||'No message provided')
+  );
+  // Open mailto to ranjith's email
+  window.location.href='mailto:ranjith@individend.in?subject='+subject+'&body='+body;
+  // Show success
   document.getElementById('fok').style.display='block';
   document.querySelector('.bsub').style.display='none';
 }
-const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('vis');}),{threshold:0.1});
+
+const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('vis');}),{threshold:0.08});
 document.querySelectorAll('.fu').forEach(el=>obs.observe(el));
-window.addEventListener('scroll',()=>{document.getElementById('mainnav').style.boxShadow=window.scrollY>30?'0 4px 30px rgba(0,0,0,0.28)':'none';});
-cSIP();cLS();cCO();
-['sr1','sr2','sr3','sr4','lr1','lr2','lr3','cr1','cr2','cr3','cr4','cr5'].forEach(id=>{const el=document.getElementById(id);if(el)rng(el);});
+window.addEventListener('scroll',()=>{document.getElementById('mainnav').style.boxShadow=window.scrollY>30?'0 4px 28px rgba(0,0,0,0.26)':'';});
+
+// Init all range fills
+['sr1','sr2','sr3','sr4','sr_ls','wr1','wr2','wr3','wr4'].forEach(id=>{const el=document.getElementById(id);if(el)rng(el);});
+cSIP();cSWP();
 </script>
 </body>
 </html>
