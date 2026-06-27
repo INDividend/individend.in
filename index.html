@@ -11,6 +11,8 @@
 <meta property="og:description" content="Your Goals. Our Support. Growing Together.">
 <meta property="og:url" content="https://individend.in">
 <meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231E2D4E'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-weight='900' font-size='36' fill='%23C5A800'%3EI%3C/text%3E%3Cpath d='M12 50 Q32 34 52 50' stroke='%23C5A800' stroke-width='2.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231E2D4E'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-weight='900' font-size='36' fill='%23C5A800'%3EI%3C/text%3E%3Cpath d='M12 50 Q32 34 52 50' stroke='%23C5A800' stroke-width='2.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
@@ -92,7 +94,7 @@ section{padding:90px 5%;}
 .btn-p{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:#162238;font-weight:700;font-size:0.92rem;padding:15px 34px;border-radius:50px;text-decoration:none;box-shadow:0 6px 22px rgba(197,168,0,0.4);transition:all 0.3s;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;}
 .btn-p:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(197,168,0,0.52);}
 
-/* ── PRODUCTS & SERVICES (colourful card grid) ── */
+/* ── PRODUCTS & SERVICES (carousel) ── */
 #offerings{background:var(--navy-deep);padding-bottom:100px;}
 .off-header{text-align:center;margin-bottom:60px;}
 .off-header .s-title{color:#fff;}
@@ -100,37 +102,54 @@ section{padding:90px 5%;}
 .off-header .s-eye{color:var(--gold-light);}
 
 /* Section divider label */
-.cat-section-label{display:flex;align-items:center;gap:16px;margin-bottom:32px;margin-top:56px;}
+.cat-section-label{display:flex;align-items:center;gap:16px;margin-bottom:28px;margin-top:56px;}
 .cat-section-label:first-of-type{margin-top:0;}
 .csl-line{flex:1;height:1px;background:rgba(255,255,255,0.1);}
 .csl-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(197,168,0,0.14);border:1px solid rgba(197,168,0,0.35);color:var(--gold-light);font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:6px 16px;border-radius:50px;white-space:nowrap;}
 
-/* Coloured card grid */
-.prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-.svc-grid-col{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+/* Carousel wrapper */
+.car-wrap{position:relative;}
+.car-viewport{overflow:hidden;border-radius:20px;}
+.car-track{display:flex;gap:20px;transition:transform 0.45s cubic-bezier(0.25,0.46,0.45,0.94);will-change:transform;}
+.car-slide{flex:0 0 calc(33.333% - 14px);min-width:0;}
+@media(max-width:860px){.car-slide{flex:0 0 calc(50% - 10px);}}
+@media(max-width:540px){.car-slide{flex:0 0 100%;}}
 
-/* Individual product card */
-.pc{border-radius:22px;padding:28px 26px 24px;position:relative;overflow:hidden;cursor:default;transition:transform 0.3s,box-shadow 0.3s;display:flex;flex-direction:column;min-height:220px;}
-.pc:hover{transform:translateY(-6px);box-shadow:0 24px 56px rgba(0,0,0,0.32);}
-.pc::after{content:'';position:absolute;bottom:-30px;right:-30px;width:110px;height:110px;border-radius:50%;opacity:0.15;background:rgba(255,255,255,0.3);}
+/* Arrow buttons */
+.car-btn{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.22);color:#fff;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;z-index:10;backdrop-filter:blur(8px);}
+.car-btn:hover{background:var(--gold);color:#162238;border-color:var(--gold);}
+.car-btn.prev{left:-22px;}
+.car-btn.next{right:-22px;}
+.car-btn:disabled{opacity:0.28;cursor:default;pointer-events:none;}
 
-/* Product card colour themes */
-.pc-mf{background:linear-gradient(135deg,#1a3a6b 0%,#1E2D4E 100%);border:1px solid rgba(100,140,220,0.25);}
-.pc-nps{background:linear-gradient(135deg,#14523a 0%,#1a6b4a 100%);border:1px solid rgba(60,200,120,0.2);}
-.pc-ins{background:linear-gradient(135deg,#4a1f6b 0%,#6a2d94 100%);border:1px solid rgba(170,100,240,0.25);}
-.pc-loan{background:linear-gradient(135deg,#5a2800 0%,#8b3d00 100%);border:1px solid rgba(240,140,50,0.25);}
-.pc-pms{background:linear-gradient(135deg,#1a3d5c 0%,#0f2b42 100%);border:1px solid rgba(197,168,0,0.3);}
+/* Dots */
+.car-dots{display:flex;justify-content:center;gap:7px;margin-top:18px;}
+.car-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.22);border:none;cursor:pointer;transition:all 0.2s;padding:0;}
+.car-dot.active{background:var(--gold-light);width:22px;border-radius:4px;}
 
-/* Service card colour themes */
-.pc-goal{background:linear-gradient(135deg,#7c1d1d 0%,#a82b2b 100%);border:1px solid rgba(240,100,100,0.25);}
-.pc-ret{background:linear-gradient(135deg,#1e3a1e 0%,#2d5c2d 100%);border:1px solid rgba(80,200,100,0.22);}
-.pc-rev{background:linear-gradient(135deg,#1a2a5e 0%,#243580 100%);border:1px solid rgba(100,160,255,0.22);}
+/* Individual card */
+.pc{border-radius:20px;padding:28px 24px 22px;position:relative;overflow:hidden;cursor:default;transition:transform 0.3s,box-shadow 0.3s;display:flex;flex-direction:column;min-height:240px;height:100%;}
+.pc:hover{transform:translateY(-5px);box-shadow:0 20px 48px rgba(0,0,0,0.35);}
+.pc::before{content:'';position:absolute;top:-40px;right:-40px;width:130px;height:130px;border-radius:50%;background:rgba(255,255,255,0.07);}
+.pc::after{content:'';position:absolute;bottom:-20px;left:-20px;width:80px;height:80px;border-radius:50%;background:rgba(255,255,255,0.05);}
 
-.pc-emoji{font-size:2.2rem;margin-bottom:14px;display:block;line-height:1;}
-.pc-title{font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.25;}
-.pc-desc{font-size:0.8rem;color:rgba(255,255,255,0.62);line-height:1.6;flex:1;}
-.pc-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:14px;}
-.pct{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.18);color:rgba(255,255,255,0.82);font-size:0.62rem;font-weight:600;letter-spacing:0.03em;padding:3px 9px;border-radius:50px;}
+/* Complementary colour palette — analogous + split-complementary of navy */
+/* Products */
+.pc-mf  {background:linear-gradient(145deg,#1B4A8A,#2563B8);border:1px solid rgba(147,197,253,0.2);}   /* Royal Blue */
+.pc-nps {background:linear-gradient(145deg,#0F6B5C,#148070);border:1px solid rgba(52,211,153,0.2);}   /* Teal */
+.pc-ins {background:linear-gradient(145deg,#7B3F00,#A05010);border:1px solid rgba(253,186,116,0.22);} /* Warm Amber-Brown */
+.pc-loan{background:linear-gradient(145deg,#5B2196,#7B35C0);border:1px solid rgba(196,181,253,0.2);}  /* Violet */
+.pc-pms {background:linear-gradient(145deg,#8A6500,#B08000);border:1px solid rgba(253,224,71,0.22);}  /* Deep Gold */
+/* Services */
+.pc-goal{background:linear-gradient(145deg,#0C5460,#0D7A8A);border:1px solid rgba(103,232,249,0.2);}  /* Deep Cyan */
+.pc-ret {background:linear-gradient(145deg,#1A4731,#226040);border:1px solid rgba(110,231,183,0.2);}  /* Forest Green */
+.pc-rev {background:linear-gradient(145deg,#1E3A5F,#2B5080);border:1px solid rgba(100,160,255,0.22);}  /* Slate Indigo */
+
+.pc-emoji{font-size:2rem;margin-bottom:14px;display:block;line-height:1;position:relative;z-index:1;}
+.pc-title{font-family:'Space Grotesk',sans-serif;font-size:0.97rem;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.28;position:relative;z-index:1;}
+.pc-desc{font-size:0.79rem;color:rgba(255,255,255,0.68);line-height:1.62;flex:1;position:relative;z-index:1;}
+.pc-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:14px;position:relative;z-index:1;}
+.pct{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.88);font-size:0.61rem;font-weight:600;letter-spacing:0.03em;padding:3px 9px;border-radius:50px;}
 
 .h-card{display:grid;grid-template-columns:72px 1fr auto;align-items:center;gap:20px;background:#fff;border-radius:18px;padding:22px 24px;border:1px solid var(--border);box-shadow:var(--shadow-sm);transition:all 0.3s;cursor:default;}
 .h-card:hover{box-shadow:var(--shadow-md);border-color:rgba(197,168,0,0.3);transform:translateX(6px);}
@@ -157,73 +176,79 @@ section{padding:90px 5%;}
 .step h3{font-size:0.9rem;font-weight:700;color:#fff;margin-bottom:7px;}
 .step p{font-size:0.78rem;color:rgba(255,255,255,0.48);line-height:1.62;}
 
-/* ── CALCULATOR ── */
+/* ── CALCULATOR (mobile-first) ── */
 #calculator{background:#fff;}
-.calc-hd{text-align:center;margin-bottom:44px;}
+.calc-hd{text-align:center;margin-bottom:36px;}
 .calc-hd .s-sub{margin:0 auto;max-width:500px;}
-.calc-shell{border-radius:26px;overflow:hidden;box-shadow:var(--shadow-lg);border:1px solid var(--border);}
+.calc-shell{border-radius:20px;overflow:hidden;box-shadow:var(--shadow-lg);border:1px solid var(--border);}
+
+/* Tab nav */
 .calc-nav{display:flex;background:var(--navy);}
-.ctab{flex:1;padding:16px 8px;text-align:center;font-weight:600;font-size:0.85rem;color:rgba(255,255,255,0.45);cursor:pointer;border:none;background:none;transition:all 0.25s;position:relative;font-family:'DM Sans',sans-serif;letter-spacing:0.01em;}
+.ctab{flex:1;padding:15px 8px;text-align:center;font-weight:600;font-size:0.88rem;color:rgba(255,255,255,0.45);cursor:pointer;border:none;background:none;transition:all 0.25s;position:relative;font-family:'DM Sans',sans-serif;letter-spacing:0.01em;}
 .ctab.active{color:var(--gold-light);background:rgba(197,168,0,0.09);}
 .ctab.active::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-light));}
-.cplane{display:none;background:var(--cream);}
-.cplane.active{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+
+/* Panels — column on mobile, row on desktop */
+.cplane{display:none;}
+.cplane.active{display:flex;flex-direction:column;}
 
 /* SIP sub-mode tabs */
-.sip-mode-row{display:flex;gap:0;margin-bottom:22px;background:rgba(30,45,78,0.07);border-radius:10px;padding:4px;}
-.smode{flex:1;padding:8px 4px;border:none;background:none;font-family:'DM Sans',sans-serif;font-size:0.76rem;font-weight:600;color:var(--text-mid);cursor:pointer;border-radius:7px;transition:all 0.2s;}
+.sip-mode-row{display:flex;gap:0;margin-bottom:20px;background:rgba(30,45,78,0.07);border-radius:10px;padding:4px;}
+.smode{flex:1;padding:8px 4px;border:none;background:none;font-family:'DM Sans',sans-serif;font-size:0.75rem;font-weight:600;color:var(--text-mid);cursor:pointer;border-radius:7px;transition:all 0.2s;}
 .smode.active{background:#fff;color:var(--navy);box-shadow:0 1px 8px rgba(30,45,78,0.1);}
-
-/* Hidden sip fields */
 .sip-field.hidden{display:none;}
 
-/* Input side */
-.cin-side{padding:32px 30px;background:#fff;border-right:1px solid var(--border);}
-.cin-side h3{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:6px;}
-.cin-side p.cdesc{font-size:0.78rem;color:var(--text-mid);margin-bottom:22px;line-height:1.6;}
-.ig{display:flex;flex-direction:column;gap:6px;margin-bottom:16px;}
-.il{font-size:0.74rem;font-weight:600;color:var(--text-mid);display:flex;justify-content:space-between;align-items:center;}
-.iv{font-size:0.76rem;font-weight:700;color:var(--navy);background:rgba(30,45,78,0.07);padding:3px 11px;border-radius:50px;}
+/* Input side — full width on mobile */
+.cin-side{padding:22px 18px;background:#fff;border-bottom:1px solid var(--border);width:100%;}
+.cin-side h3{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:5px;}
+.cin-side p.cdesc{font-size:0.76rem;color:var(--text-mid);margin-bottom:18px;line-height:1.58;}
+.ig{display:flex;flex-direction:column;gap:5px;margin-bottom:14px;}
+.il{font-size:0.73rem;font-weight:600;color:var(--text-mid);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:4px;}
+.iv{font-size:0.75rem;font-weight:700;color:var(--navy);background:rgba(30,45,78,0.07);padding:3px 10px;border-radius:50px;white-space:nowrap;}
 
-/* Range + number input row */
-.range-with-input{display:flex;align-items:center;gap:10px;}
-.range-with-input input[type=range]{flex:1;}
-.num-inp{width:88px;padding:6px 9px;border:1.5px solid var(--border);border-radius:7px;font-size:0.8rem;font-family:'DM Sans';color:var(--text-dark);outline:none;background:var(--cream);text-align:right;transition:border-color 0.2s;-moz-appearance:textfield;flex-shrink:0;}
+/* Range + number input */
+.range-with-input{display:flex;align-items:center;gap:8px;}
+.range-with-input input[type=range]{flex:1;min-width:0;}
+.num-inp{width:78px;padding:6px 8px;border:1.5px solid var(--border);border-radius:7px;font-size:0.79rem;font-family:'DM Sans';color:var(--text-dark);outline:none;background:var(--cream);text-align:right;-moz-appearance:textfield;flex-shrink:0;transition:border-color 0.2s;}
 .num-inp::-webkit-outer-spin-button,.num-inp::-webkit-inner-spin-button{-webkit-appearance:none;}
 .num-inp:focus{border-color:var(--gold);background:#fff;}
 
 input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:5px;border-radius:3px;background:linear-gradient(90deg,var(--gold) var(--p,50%),#E2E8F0 var(--p,50%));outline:none;cursor:pointer;}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--navy);border:2.5px solid var(--gold-light);box-shadow:0 2px 8px rgba(30,45,78,0.26);cursor:pointer;}
-.cdis{font-size:0.68rem;color:var(--text-mid);line-height:1.55;background:rgba(30,45,78,0.05);border-radius:8px;padding:10px 12px;border-left:3px solid var(--gold);margin-top:6px;}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--navy);border:2.5px solid var(--gold-light);box-shadow:0 2px 8px rgba(30,45,78,0.26);cursor:pointer;}
+input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--navy);border:2.5px solid var(--gold-light);cursor:pointer;}
+.cdis{font-size:0.67rem;color:var(--text-mid);line-height:1.55;background:rgba(30,45,78,0.05);border-radius:8px;padding:10px 12px;border-left:3px solid var(--gold);margin-top:6px;}
 
-/* Result side */
-.cout-side{padding:32px 30px;background:var(--cream);display:flex;flex-direction:column;gap:0;}
-.corpus-box{background:linear-gradient(145deg,#162238,#1E2D4E);border-radius:18px;padding:22px 24px;color:#fff;margin-bottom:16px;}
-.cl{font-size:0.63rem;color:rgba(255,255,255,0.55);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:3px;}
-.cv{font-family:'Space Grotesk';font-size:2rem;font-weight:800;color:var(--gold-light);line-height:1;margin-bottom:14px;}
-.rrows{display:flex;flex-direction:column;gap:7px;margin-bottom:14px;}
-.rr{display:flex;justify-content:space-between;align-items:center;font-size:0.77rem;}
+/* Result side — full width on mobile */
+.cout-side{padding:22px 18px;background:var(--cream);display:flex;flex-direction:column;width:100%;}
+.corpus-box{background:linear-gradient(145deg,#162238,#1E2D4E);border-radius:16px;padding:20px 20px;color:#fff;margin-bottom:14px;}
+.cl{font-size:0.61rem;color:rgba(255,255,255,0.55);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:3px;}
+.cv{font-family:'Space Grotesk';font-size:1.7rem;font-weight:800;color:var(--gold-light);line-height:1;margin-bottom:12px;}
+.rrows{display:flex;flex-direction:column;gap:7px;margin-bottom:12px;}
+.rr{display:flex;justify-content:space-between;align-items:center;font-size:0.76rem;}
 .rr span:first-child{color:rgba(255,255,255,0.6);}
 .rr span:last-child{font-weight:700;color:#fff;}
 .rr.gain span:last-child{color:#4ADE80;}
 
-/* Mini chart */
-.mini-chart{height:140px;background:rgba(255,255,255,0.04);border-radius:12px;padding:10px;margin-bottom:14px;}
+/* Mini chart with growth arrow */
+.mini-chart-wrap{position:relative;margin-bottom:12px;}
+.mini-chart{height:120px;background:rgba(255,255,255,0.04);border-radius:12px;padding:8px;}
+.growth-arrow{position:absolute;right:10px;bottom:10px;display:flex;align-items:center;gap:4px;background:rgba(74,222,128,0.15);border:1px solid rgba(74,222,128,0.35);border-radius:50px;padding:3px 9px;}
+.growth-arrow svg{width:12px;height:12px;}
+.growth-arrow span{font-size:0.64rem;font-weight:700;color:#4ADE80;}
 
-/* Nudge — improved visibility with dark bg for text */
-.nudge{background:#1a2e50;border:1px solid rgba(197,168,0,0.38);border-radius:12px;padding:14px 16px;margin-bottom:14px;}
-.nudge-ttl{font-size:0.67rem;font-weight:700;color:var(--gold-light);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;}
-.nudge-txt{font-size:0.79rem;color:#dde3ef;line-height:1.55;}
+/* Nudge */
+.nudge{background:#1a2e50;border:1px solid rgba(197,168,0,0.38);border-radius:12px;padding:13px 15px;margin-bottom:12px;}
+.nudge-ttl{font-size:0.66rem;font-weight:700;color:var(--gold-light);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:5px;}
+.nudge-txt{font-size:0.78rem;color:#dde3ef;line-height:1.55;}
 .nudge-txt strong{color:#fff;}
-.nbtn{display:inline-block;margin-top:9px;background:rgba(197,168,0,0.22);border:1px solid rgba(197,168,0,0.5);color:var(--gold-light);font-size:0.72rem;font-weight:700;padding:6px 14px;border-radius:50px;cursor:pointer;transition:all 0.2s;font-family:'DM Sans',sans-serif;}
+.nbtn{display:inline-block;margin-top:8px;background:rgba(197,168,0,0.22);border:1px solid rgba(197,168,0,0.5);color:var(--gold-light);font-size:0.71rem;font-weight:700;padding:6px 14px;border-radius:50px;cursor:pointer;transition:all 0.2s;font-family:'DM Sans',sans-serif;}
 .nbtn:hover{background:rgba(197,168,0,0.38);}
-
 .rcta{display:block;text-align:center;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:#162238;font-weight:700;font-size:0.86rem;padding:12px 22px;border-radius:50px;text-decoration:none;box-shadow:0 4px 14px rgba(197,168,0,0.28);margin-top:auto;}
 .rcta:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(197,168,0,0.38);}
 
-/* SWP specifics */
+/* SWP warning */
 .swp-warning{background:rgba(255,180,0,0.08);border:1px solid rgba(255,180,0,0.25);border-radius:10px;padding:11px 14px;margin-top:10px;}
-.swp-warning p{font-size:0.72rem;color:#8a6200;line-height:1.55;}
+.swp-warning p{font-size:0.71rem;color:#8a6200;line-height:1.55;}
 
 
 /* ── WHY ── */
@@ -310,12 +335,19 @@ footer{background:#162238;color:rgba(255,255,255,0.48);padding:50px 5% 0;}
 .fu.vis{opacity:1;transform:translateY(0);}
 
 /* ── RESPONSIVE ── */
+/* Calculator: side-by-side on desktop */
+@media(min-width:700px){
+  .cplane.active{flex-direction:row;}
+  .cin-side{border-right:1px solid var(--border);border-bottom:none;width:50%;}
+  .cout-side{width:50%;}
+  .cv{font-size:2rem;}
+  .cin-side{padding:28px 26px;}
+  .cout-side{padding:28px 26px;}
+}
 @media(max-width:960px){
   .hero-inner{grid-template-columns:1fr;gap:38px;padding:64px 5%;}
   .steps{grid-template-columns:1fr 1fr;gap:26px;}
   .steps::before{display:none;}
-  .cplane.active{grid-template-columns:1fr;}
-  .cin-side{border-right:none;border-bottom:1px solid var(--border);}
   .why-grid{grid-template-columns:1fr;}
   .contact-g{grid-template-columns:1fr;}
   .fg-grid{grid-template-columns:1fr 1fr;gap:24px;}
@@ -325,24 +357,24 @@ footer{background:#162238;color:rgba(255,255,255,0.48);padding:50px 5% 0;}
   .hbg{display:flex;}
   .h-card{grid-template-columns:60px 1fr;}
   .h-card-arrow{display:none;}
-  .num-inp{width:74px;}
-  .prod-grid{grid-template-columns:1fr 1fr;}
-  .svc-grid-col{grid-template-columns:1fr 1fr;}
-  .pc-pms{grid-column:1/3 !important;}
+  .car-btn.prev{left:-12px;}
+  .car-btn.next{right:-12px;}
+}
+@media(max-width:699px){
+  .cplane.active{flex-direction:column;}
+  .cin-side{width:100%;border-bottom:1px solid var(--border);border-right:none;}
+  .cout-side{width:100%;}
 }
 @media(max-width:600px){
   .steps{grid-template-columns:1fr;}
   .why-cards{grid-template-columns:1fr 1fr;}
   .fg-grid{grid-template-columns:1fr;}
   .fr{grid-template-columns:1fr;}
-  .ctab{font-size:0.78rem;padding:14px 4px;}
+  .ctab{font-size:0.82rem;padding:13px 6px;}
   .sip-mode-row{flex-wrap:wrap;}
-  .range-with-input{flex-direction:column;align-items:stretch;}
-  .num-inp{width:100%;text-align:left;}
-  .prod-grid{grid-template-columns:1fr;}
-  .svc-grid-col{grid-template-columns:1fr;}
-  .pc-pms{grid-column:auto !important;}
   .h-headline{font-size:clamp(2.4rem,10vw,3.2rem);}
+  .car-btn{display:none;}
+  .num-inp{width:68px;}
 }
 </style>
 </head>
@@ -405,98 +437,100 @@ footer{background:#162238;color:rgba(255,255,255,0.48);padding:50px 5% 0;}
       <p class="s-sub" style="margin:0 auto;">We connect you to SEBI and IRDAI-regulated financial products, and provide goal-oriented support across every stage of your financial journey.</p>
     </div>
 
-    <!-- PRODUCTS -->
+    <!-- PRODUCTS CAROUSEL -->
     <div class="cat-section-label fu">
       <div class="csl-line"></div>
       <div class="csl-badge">&#128200; Products &mdash; SEBI &amp; IRDAI Regulated</div>
       <div class="csl-line"></div>
     </div>
-
-    <div class="prod-grid fu">
-
-      <div class="pc pc-mf">
-        <span class="pc-emoji">&#128200;</span>
-        <div class="pc-title">Mutual Funds &amp; SIF</div>
-        <div class="pc-desc">Equity, Debt, Hybrid and Specialised Investment Funds across leading AMCs — for every risk profile and time horizon.</div>
-        <div class="pc-tags">
-          <span class="pct">Equity</span><span class="pct">Debt</span><span class="pct">Hybrid</span><span class="pct">ELSS</span><span class="pct">SIF</span><span class="pct">Index Funds</span>
+    <div class="car-wrap fu">
+      <button class="car-btn prev" id="prod-prev" onclick="carMove('prod',-1)" aria-label="Previous">&#8249;</button>
+      <div class="car-viewport">
+        <div class="car-track" id="prod-track">
+          <div class="car-slide">
+            <div class="pc pc-mf">
+              <span class="pc-emoji">&#128200;</span>
+              <div class="pc-title">Mutual Funds &amp; SIF</div>
+              <div class="pc-desc">Equity, Debt, Hybrid and Specialised Investment Funds across leading AMCs — for every risk profile and time horizon.</div>
+              <div class="pc-tags"><span class="pct">Equity</span><span class="pct">Debt</span><span class="pct">Hybrid</span><span class="pct">ELSS</span><span class="pct">SIF</span><span class="pct">Index Funds</span></div>
+            </div>
+          </div>
+          <div class="car-slide">
+            <div class="pc pc-nps">
+              <span class="pc-emoji">&#127963;</span>
+              <div class="pc-title">NPS &middot; Fixed Deposits &middot; Bonds</div>
+              <div class="pc-desc">National Pension System for retirement security, Corporate &amp; Government Bonds and Fixed Deposits for stable, predictable growth.</div>
+              <div class="pc-tags"><span class="pct">NPS Tier I &amp; II</span><span class="pct">Corporate Bonds</span><span class="pct">Govt Securities</span><span class="pct">Corp FD</span></div>
+            </div>
+          </div>
+          <div class="car-slide">
+            <div class="pc pc-ins">
+              <span class="pc-emoji">&#128737;</span>
+              <div class="pc-title">Insurance</div>
+              <div class="pc-desc">Life and Health insurance from India&rsquo;s leading insurers. Right cover to protect what matters most &mdash; you and your family.</div>
+              <div class="pc-tags"><span class="pct">Term Life</span><span class="pct">Health Cover</span><span class="pct">Critical Illness</span><span class="pct">Family Floater</span></div>
+            </div>
+          </div>
+          <div class="car-slide">
+            <div class="pc pc-loan">
+              <span class="pc-emoji">&#127968;</span>
+              <div class="pc-title">Loans</div>
+              <div class="pc-desc">Home Loans (new purchase, balance transfer, top-up), Education, Vehicle and Debt Consolidation loans through trusted DSA partnerships.</div>
+              <div class="pc-tags"><span class="pct">Home Loan</span><span class="pct">BT &amp; Top-Up</span><span class="pct">Education</span><span class="pct">Vehicle</span><span class="pct">LAMF</span></div>
+            </div>
+          </div>
+          <div class="car-slide">
+            <div class="pc pc-pms">
+              <span class="pc-emoji">&#128084;</span>
+              <div class="pc-title">PMS &mdash; Portfolio Management Services</div>
+              <div class="pc-desc">For HNI investors seeking professionally managed, high-conviction portfolios. Access to leading PMS providers (min. &#8377;50 Lakhs).</div>
+              <div class="pc-tags"><span class="pct">HNI Portfolios</span><span class="pct">High Conviction</span><span class="pct">Equity PMS</span><span class="pct">Multi-Asset</span><span class="pct">Min &#8377;50L</span></div>
+            </div>
+          </div>
         </div>
       </div>
-
-      <div class="pc pc-nps">
-        <span class="pc-emoji">&#127963;</span>
-        <div class="pc-title">NPS · Fixed Deposits · Bonds</div>
-        <div class="pc-desc">National Pension System for retirement security, Corporate &amp; Government Bonds and Fixed Deposits for stable, predictable growth.</div>
-        <div class="pc-tags">
-          <span class="pct">NPS Tier I &amp; II</span><span class="pct">Corporate Bonds</span><span class="pct">Govt Securities</span><span class="pct">Corp FD</span>
-        </div>
-      </div>
-
-      <div class="pc pc-ins">
-        <span class="pc-emoji">&#128737;</span>
-        <div class="pc-title">Insurance</div>
-        <div class="pc-desc">Life and Health insurance from India's leading insurers. We help you find the right cover to protect what matters most — you and your family.</div>
-        <div class="pc-tags">
-          <span class="pct">Term Life</span><span class="pct">Health Cover</span><span class="pct">Critical Illness</span><span class="pct">Family Floater</span>
-        </div>
-      </div>
-
-      <div class="pc pc-loan">
-        <span class="pc-emoji">&#127968;</span>
-        <div class="pc-title">Loans</div>
-        <div class="pc-desc">Home Loans (new purchase, balance transfer, top-up), Education, Vehicle and Debt Consolidation loans through trusted DSA partnerships.</div>
-        <div class="pc-tags">
-          <span class="pct">Home Loan</span><span class="pct">BT &amp; Top-Up</span><span class="pct">Education</span><span class="pct">Vehicle</span><span class="pct">LAMF</span>
-        </div>
-      </div>
-
-      <div class="pc pc-pms" style="grid-column:2/4;">
-        <span class="pc-emoji">&#128084;</span>
-        <div class="pc-title">PMS — Portfolio Management Services</div>
-        <div class="pc-desc">For HNI investors seeking professionally managed, high-conviction portfolios. We facilitate access to leading PMS providers for eligible investors (min. ₹50 Lakhs).</div>
-        <div class="pc-tags">
-          <span class="pct">HNI Portfolios</span><span class="pct">High Conviction</span><span class="pct">Equity PMS</span><span class="pct">Multi-Asset</span><span class="pct">Min ₹50L</span>
-        </div>
-      </div>
-
+      <button class="car-btn next" id="prod-next" onclick="carMove('prod',1)" aria-label="Next">&#8250;</button>
+      <div class="car-dots" id="prod-dots"></div>
     </div>
 
-    <!-- SERVICES -->
-    <div class="cat-section-label fu" style="margin-top:56px;">
+    <!-- SERVICES CAROUSEL -->
+    <div class="cat-section-label fu" style="margin-top:52px;">
       <div class="csl-line"></div>
       <div class="csl-badge">&#127919; Client Services &mdash; Goal-First &amp; Ongoing</div>
       <div class="csl-line"></div>
     </div>
-
-    <div class="svc-grid-col fu">
-
-      <div class="pc pc-goal">
-        <span class="pc-emoji">&#127919;</span>
-        <div class="pc-title">Goal-Based Investing</div>
-        <div class="pc-desc">Connect your financial goals — child education, marriage fund, home purchase, wealth creation — to the right products with structured timelines and milestone tracking.</div>
-        <div class="pc-tags">
-          <span class="pct">Child Education</span><span class="pct">Marriage Fund</span><span class="pct">Wealth Creation</span><span class="pct">Home Purchase</span>
+    <div class="car-wrap fu">
+      <button class="car-btn prev" id="svc-prev" onclick="carMove('svc',-1)" aria-label="Previous">&#8249;</button>
+      <div class="car-viewport">
+        <div class="car-track" id="svc-track">
+          <div class="car-slide">
+            <div class="pc pc-goal">
+              <span class="pc-emoji">&#127919;</span>
+              <div class="pc-title">Goal-Based Investing</div>
+              <div class="pc-desc">Connect your financial goals &mdash; child education, marriage fund, home purchase, wealth creation &mdash; to the right products with structured timelines.</div>
+              <div class="pc-tags"><span class="pct">Child Education</span><span class="pct">Marriage Fund</span><span class="pct">Wealth Creation</span><span class="pct">Home Purchase</span></div>
+            </div>
+          </div>
+          <div class="car-slide">
+            <div class="pc pc-ret">
+              <span class="pc-emoji">&#127956;</span>
+              <div class="pc-title">Retirement Planning</div>
+              <div class="pc-desc">Map your retirement income needs to SIPs, NPS, SWPs and annuities. Early action and the right product mix makes all the difference.</div>
+              <div class="pc-tags"><span class="pct">NPS</span><span class="pct">SIP to SWP</span><span class="pct">Retirement Corpus</span><span class="pct">Monthly Income</span></div>
+            </div>
+          </div>
+          <div class="car-slide">
+            <div class="pc pc-rev">
+              <span class="pc-emoji">&#128269;</span>
+              <div class="pc-title">Portfolio Review &amp; Rebalancing</div>
+              <div class="pc-desc">Periodic reviews to track performance against your goals, identify allocation drift and rebalance proactively through every market cycle.</div>
+              <div class="pc-tags"><span class="pct">Annual Review</span><span class="pct">Rebalancing</span><span class="pct">Performance Tracking</span></div>
+            </div>
+          </div>
         </div>
       </div>
-
-      <div class="pc pc-ret">
-        <span class="pc-emoji">&#127956;</span>
-        <div class="pc-title">Retirement Planning</div>
-        <div class="pc-desc">Building a corpus that sustains you in retirement requires early action and the right mix. We map your retirement income needs to SIPs, NPS, SWPs and annuities.</div>
-        <div class="pc-tags">
-          <span class="pct">NPS</span><span class="pct">SIP to SWP</span><span class="pct">Retirement Corpus</span><span class="pct">Monthly Income</span>
-        </div>
-      </div>
-
-      <div class="pc pc-rev">
-        <span class="pc-emoji">&#128269;</span>
-        <div class="pc-title">Portfolio Review &amp; Rebalancing</div>
-        <div class="pc-desc">Periodic reviews to track performance against your goals, identify allocation drift and rebalance proactively so your portfolio stays on track through every market cycle.</div>
-        <div class="pc-tags">
-          <span class="pct">Annual Review</span><span class="pct">Rebalancing</span><span class="pct">Performance Tracking</span>
-        </div>
-      </div>
-
+      <button class="car-btn next" id="svc-next" onclick="carMove('svc',1)" aria-label="Next">&#8250;</button>
+      <div class="car-dots" id="svc-dots"></div>
     </div>
 
   </div>
@@ -604,7 +638,13 @@ footer{background:#162238;color:rgba(255,255,255,0.48);padding:50px 5% 0;}
               <div class="rr gain"><span>Estimated Gains</span><span id="sr-g">&#8377;0</span></div>
               <div class="rr"><span>Wealth Multiple</span><span id="sr-r">0x</span></div>
             </div>
-            <div class="mini-chart"><canvas id="sipChart"></canvas></div>
+            <div class="mini-chart-wrap">
+              <div class="mini-chart"><canvas id="sipChart"></canvas></div>
+              <div class="growth-arrow" id="sipArrow">
+                <svg viewBox="0 0 14 14" fill="none"><polyline points="2,11 7,3 12,11" stroke="#4ADE80" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><line x1="7" y1="3" x2="7" y2="11" stroke="#4ADE80" stroke-width="2.2" stroke-linecap="round"/></svg>
+                <span id="sipGrowthPct">+0%</span>
+              </div>
+            </div>
           </div>
           <div class="nudge" id="sipNudge">
             <div class="nudge-ttl">&#128161; Power of Compounding</div>
@@ -659,7 +699,13 @@ footer{background:#162238;color:rgba(255,255,255,0.48);padding:50px 5% 0;}
               <div class="rr gain"><span>Corpus Sustainability</span><span id="wr-stat">&#8212;</span></div>
               <div class="rr"><span>Corpus Lasts Until</span><span id="wr-end">&#8212;</span></div>
             </div>
-            <div class="mini-chart"><canvas id="swpChart"></canvas></div>
+            <div class="mini-chart-wrap">
+              <div class="mini-chart"><canvas id="swpChart"></canvas></div>
+              <div class="growth-arrow" id="swpArrow">
+                <svg viewBox="0 0 14 14" fill="none"><polyline points="2,11 7,3 12,11" stroke="#4ADE80" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><line x1="7" y1="3" x2="7" y2="11" stroke="#4ADE80" stroke-width="2.2" stroke-linecap="round"/></svg>
+                <span id="swpGrowthPct">—</span>
+              </div>
+            </div>
           </div>
           <div class="nudge" id="swpNudge">
             <div class="nudge-ttl">&#128161; Retirement Planning Insight</div>
@@ -768,8 +814,8 @@ footer{background:#162238;color:rgba(255,255,255,0.48);padding:50px 5% 0;}
         <div class="soc-row">
           <a href="https://instagram.com/individendfinserv" target="_blank" rel="noopener" class="sl" title="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
           <a href="https://youtube.com/@individendfinserv" target="_blank" rel="noopener" class="sl" title="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
-          <a href="https://linkedin.com/company/individendfinserv" target="_blank" rel="noopener" class="sl" title="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
-          <a href="https://twitter.com/individendfs" target="_blank" rel="noopener" class="sl" title="X"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.261 5.636 5.903-5.636zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="https://linkedin.com/company/individend-finserv" target="_blank" rel="noopener" class="sl" title="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a href="https://x.com/individendfin" target="_blank" rel="noopener" class="sl" title="X"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.261 5.636 5.903-5.636zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
         </div>
       </div>
       <div class="cf fu">
@@ -807,8 +853,8 @@ footer{background:#162238;color:rgba(255,255,255,0.48);padding:50px 5% 0;}
       <div class="soc-row" style="margin-top:13px;">
         <a href="https://instagram.com/individendfinserv" target="_blank" rel="noopener" class="sl" title="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
         <a href="https://youtube.com/@individendfinserv" target="_blank" rel="noopener" class="sl" title="YouTube"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
-        <a href="https://linkedin.com/company/individendfinserv" target="_blank" rel="noopener" class="sl" title="LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
-        <a href="https://twitter.com/individendfs" target="_blank" rel="noopener" class="sl" title="X"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.261 5.636 5.903-5.636zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        <a href="https://linkedin.com/company/individend-finserv" target="_blank" rel="noopener" class="sl" title="LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        <a href="https://x.com/individendfin" target="_blank" rel="noopener" class="sl" title="X"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.261 5.636 5.903-5.636zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
       </div>
     </div>
     <div class="fc">
@@ -847,256 +893,304 @@ footer{background:#162238;color:rgba(255,255,255,0.48);padding:50px 5% 0;}
 </div>
 
 <script>
-// ── Chart instances ──
-let sipCh=null,swpCh=null;
-let sipMode='sip'; // 'sip' | 'step' | 'ls'
+// ─── CAROUSEL ───────────────────────────────────────────
+const cars = {};
+function initCar(id, trackId, dotsId, prevId, nextId) {
+  const track = document.getElementById(trackId);
+  if (!track) return;
+  const slides = track.querySelectorAll('.car-slide');
+  const dotsEl = document.getElementById(dotsId);
+  let cur = 0;
 
-function fmt(n){
-  if(n>=10000000) return '\u20B9'+(n/10000000).toFixed(2)+' Cr';
-  if(n>=100000)   return '\u20B9'+(n/100000).toFixed(2)+' L';
-  if(n>=1000)     return '\u20B9'+(n/1000).toFixed(1)+'K';
-  return '\u20B9'+Math.round(n).toLocaleString('en-IN');
-}
-function fmt_raw(v){return v;}   // raw number → number (used for range→numInp)
-function fmtPct(v){return v;}
-function fmtYrs(v){return v;}
-function fmtLabel(v,type){
-  if(type==='pct') return v+'%';
-  if(type==='yrs') return v+' Yrs';
-  return fmt(v);
+  function visCount() {
+    const vp = track.parentElement.offsetWidth;
+    if (vp < 541) return 1;
+    if (vp < 861) return 2;
+    return 3;
+  }
+
+  function slideW() {
+    const gap = 20, vc = visCount();
+    return (track.parentElement.offsetWidth - gap * (vc - 1)) / vc + gap;
+  }
+
+  function maxIdx() { return Math.max(0, slides.length - visCount()); }
+
+  function render() {
+    track.style.transform = `translateX(-${cur * slideW()}px)`;
+    const dots = dotsEl.querySelectorAll('.car-dot');
+    dots.forEach((d, i) => d.classList.toggle('active', i === cur));
+    document.getElementById(prevId).disabled = cur === 0;
+    document.getElementById(nextId).disabled = cur >= maxIdx();
+  }
+
+  // Build dots
+  dotsEl.innerHTML = '';
+  for (let i = 0; i <= maxIdx(); i++) {
+    const d = document.createElement('button');
+    d.className = 'car-dot' + (i === 0 ? ' active' : '');
+    d.onclick = () => { cur = i; render(); };
+    dotsEl.appendChild(d);
+  }
+
+  cars[id] = {
+    move(dir) { cur = Math.max(0, Math.min(maxIdx(), cur + dir)); render(); },
+    resize() {
+      // Rebuild dots on resize
+      dotsEl.innerHTML = '';
+      const m = maxIdx();
+      cur = Math.min(cur, m);
+      for (let i = 0; i <= m; i++) {
+        const d = document.createElement('button');
+        d.className = 'car-dot' + (i === cur ? ' active' : '');
+        d.onclick = () => { cur = i; render(); };
+        dotsEl.appendChild(d);
+      }
+      render();
+    }
+  };
+  render();
+
+  // Touch / swipe
+  let tx = 0;
+  track.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - tx;
+    if (Math.abs(dx) > 40) cars[id].move(dx < 0 ? 1 : -1);
+  }, { passive: true });
 }
 
-function rng(el){
-  if(!el) return;
-  const p=((el.value-el.min)/(el.max-el.min))*100;
-  el.style.setProperty('--p',p+'%');
+function carMove(id, dir) { if (cars[id]) cars[id].move(dir); }
+window.addEventListener('resize', () => { Object.values(cars).forEach(c => c.resize()); });
+
+// ─── CHART + CALCULATOR ─────────────────────────────────
+let sipCh = null, swpCh = null;
+let sipMode = 'sip';
+
+function fmt(n) {
+  if (n >= 10000000) return '\u20B9' + (n / 10000000).toFixed(2) + ' Cr';
+  if (n >= 100000)   return '\u20B9' + (n / 100000).toFixed(2) + ' L';
+  if (n >= 1000)     return '\u20B9' + (n / 1000).toFixed(1) + 'K';
+  return '\u20B9' + Math.round(n).toLocaleString('en-IN');
+}
+function fmt_raw(v) { return v; }
+function fmtPct(v) { return v; }
+function fmtYrs(v) { return v; }
+
+function rng(el) {
+  if (!el) return;
+  const p = ((el.value - el.min) / (el.max - el.min)) * 100;
+  el.style.setProperty('--p', p + '%');
 }
 
-// Sync range → number input
-function syncFromRange(rangeId, numId, _fmt){
-  const r=document.getElementById(rangeId);
-  const n=document.getElementById(numId);
-  if(r&&n) n.value=r.value;
+function syncFromRange(rangeId, numId) {
+  const r = document.getElementById(rangeId), n = document.getElementById(numId);
+  if (r && n) n.value = r.value;
   rng(r);
 }
-// Sync number input → range + label
-function syncFromNum(numId, rangeId, labelId, _fmt){
-  const n=document.getElementById(numId);
-  const r=document.getElementById(rangeId);
-  if(!n||!r) return;
-  let v=parseFloat(n.value)||0;
-  v=Math.max(parseFloat(r.min),Math.min(parseFloat(r.max),v));
-  n.value=v;
-  r.value=v;
-  rng(r);
-  // update label
-  if(labelId){
-    const el=document.getElementById(labelId);
-    if(el){
-      // determine format from id
-      if(labelId.includes('v2')||labelId.includes('v3')||labelId.includes('wv3')){el.textContent=v+'%';}
-      else if(labelId.includes('v4')||labelId.includes('wv4')){el.textContent=v+' Yrs';}
-      else{el.textContent=fmt(v);}
+function syncFromNum(numId, rangeId, labelId) {
+  const n = document.getElementById(numId), r = document.getElementById(rangeId);
+  if (!n || !r) return;
+  let v = parseFloat(n.value) || 0;
+  v = Math.max(parseFloat(r.min), Math.min(parseFloat(r.max), v));
+  n.value = v; r.value = v; rng(r);
+  if (labelId) {
+    const el = document.getElementById(labelId);
+    if (el) {
+      if (labelId.includes('v2') || labelId.includes('v3') || labelId.includes('wv3')) el.textContent = v + '%';
+      else if (labelId.includes('v4') || labelId.includes('wv4')) el.textContent = v + ' Yrs';
+      else el.textContent = fmt(v);
     }
   }
 }
 
-function mkChart(id,inst,lbls,inv,gns,swpMode){
-  const ctx=document.getElementById(id);
-  if(!ctx) return inst;
-  if(inst) inst.destroy();
-  if(swpMode){
-    return new Chart(ctx,{
-      type:'line',
-      data:{labels:lbls,datasets:[{label:'Corpus',data:inv,borderColor:'rgba(197,168,0,0.9)',backgroundColor:'rgba(197,168,0,0.12)',fill:true,tension:0.4,pointRadius:0,borderWidth:2}]},
-      options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},
-        scales:{x:{grid:{color:'rgba(255,255,255,0.05)'},ticks:{color:'rgba(255,255,255,0.4)',font:{size:9}}},
-                y:{grid:{color:'rgba(255,255,255,0.05)'},ticks:{color:'rgba(255,255,255,0.4)',font:{size:9},callback:v=>fmt(v)}}},
-        animation:{duration:400}}
+function mkChart(id, inst, lbls, inv, gns, swpMode) {
+  const ctx = document.getElementById(id);
+  if (!ctx) return inst;
+  if (inst) inst.destroy();
+  if (swpMode) {
+    return new Chart(ctx, {
+      type: 'line',
+      data: { labels: lbls, datasets: [{ label: 'Corpus', data: inv, borderColor: 'rgba(197,168,0,0.9)', backgroundColor: 'rgba(197,168,0,0.12)', fill: true, tension: 0.4, pointRadius: 0, borderWidth: 2 }] },
+      options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } },
+        scales: { x: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: 'rgba(255,255,255,0.4)', font: { size: 9 } } },
+                  y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: 'rgba(255,255,255,0.4)', font: { size: 9 }, callback: v => fmt(v) } } },
+        animation: { duration: 400 } }
     });
   }
-  return new Chart(ctx,{
-    type:'bar',
-    data:{labels:lbls,datasets:[
-      {label:'Invested',data:inv,backgroundColor:'rgba(255,255,255,0.12)',borderRadius:3,borderSkipped:false,stack:'a'},
-      {label:'Gains',data:gns,backgroundColor:'rgba(197,168,0,0.78)',borderRadius:3,borderSkipped:false,stack:'a'}
+  return new Chart(ctx, {
+    type: 'bar',
+    data: { labels: lbls, datasets: [
+      { label: 'Invested', data: inv, backgroundColor: 'rgba(255,255,255,0.12)', borderRadius: 3, borderSkipped: false, stack: 'a' },
+      { label: 'Gains',    data: gns, backgroundColor: 'rgba(197,168,0,0.78)',    borderRadius: 3, borderSkipped: false, stack: 'a' }
     ]},
-    options:{responsive:true,maintainAspectRatio:false,
-      plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>(' '+fmt(ctx.raw))}}},
-      scales:{
-        x:{grid:{color:'rgba(255,255,255,0.05)'},ticks:{color:'rgba(255,255,255,0.4)',font:{size:9}},stacked:true},
-        y:{grid:{color:'rgba(255,255,255,0.05)'},ticks:{color:'rgba(255,255,255,0.4)',font:{size:9},callback:v=>fmt(v)},stacked:true}
-      },animation:{duration:400}}
+    options: { responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => (' ' + fmt(ctx.raw)) } } },
+      scales: {
+        x: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: 'rgba(255,255,255,0.4)', font: { size: 9 } }, stacked: true },
+        y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: 'rgba(255,255,255,0.4)', font: { size: 9 }, callback: v => fmt(v) }, stacked: true }
+      }, animation: { duration: 400 } }
   });
 }
 
-function calcSIP(sip,stepPct,ratePct,yrs){
-  const rate=ratePct/100/12,step=stepPct/100;
-  let c=0,inv=0,m=sip;
-  for(let y=0;y<yrs;y++){for(let mo=0;mo<12;mo++){c=(c+m)*(1+rate);inv+=m;}m*=(1+step);}
-  return {corpus:c,invested:inv,gain:c-inv};
+function calcSIP(sip, stepPct, ratePct, yrs) {
+  const rate = ratePct / 100 / 12, step = stepPct / 100;
+  let c = 0, inv = 0, m = sip;
+  for (let y = 0; y < yrs; y++) { for (let mo = 0; mo < 12; mo++) { c = (c + m) * (1 + rate); inv += m; } m *= (1 + step); }
+  return { corpus: c, invested: inv, gain: c - inv };
 }
-function calcLS(ls,ratePct,yrs){
-  const c=ls*Math.pow(1+ratePct/100,yrs);
-  return {corpus:c,invested:ls,gain:c-ls};
+function calcLS(ls, ratePct, yrs) {
+  const c = ls * Math.pow(1 + ratePct / 100, yrs);
+  return { corpus: c, invested: ls, gain: c - ls };
 }
 
-function setSIPMode(mode){
-  sipMode=mode;
-  ['sip','step','ls'].forEach(m=>{
-    document.getElementById('sm-'+m).classList.toggle('active',m===mode);
-  });
-  document.getElementById('sf-monthly').classList.toggle('hidden',mode==='ls');
-  document.getElementById('sf-stepup').classList.toggle('hidden',mode!=='step');
-  document.getElementById('sf-lumpsum').classList.toggle('hidden',mode!=='ls');
-  // Update nudge button text
-  const btn=document.getElementById('sipNudgeBtn');
-  if(btn) btn.textContent=mode==='ls'?'Try \xD72 Lumpsum':'Try \xD72 SIP Amount';
+function setSIPMode(mode) {
+  sipMode = mode;
+  ['sip', 'step', 'ls'].forEach(m => document.getElementById('sm-' + m).classList.toggle('active', m === mode));
+  document.getElementById('sf-monthly').classList.toggle('hidden', mode === 'ls');
+  document.getElementById('sf-stepup').classList.toggle('hidden', mode !== 'step');
+  document.getElementById('sf-lumpsum').classList.toggle('hidden', mode !== 'ls');
+  const btn = document.getElementById('sipNudgeBtn');
+  if (btn) btn.textContent = mode === 'ls' ? 'Try \xD72 Lumpsum' : 'Try \xD72 SIP Amount';
   cSIP();
 }
 
-function cSIP(){
-  const rate=+document.getElementById('sr3').value, yrs=+document.getElementById('sr4').value;
-  // sync labels
-  document.getElementById('sv3').textContent=rate+'%';
-  document.getElementById('sv4').textContent=yrs+' Yrs';
-  rng(document.getElementById('sr3'));
-  rng(document.getElementById('sr4'));
+function cSIP() {
+  const rate = +document.getElementById('sr3').value, yrs = +document.getElementById('sr4').value;
+  document.getElementById('sv3').textContent = rate + '%';
+  document.getElementById('sv4').textContent = yrs + ' Yrs';
+  rng(document.getElementById('sr3')); rng(document.getElementById('sr4'));
 
   let r;
-  if(sipMode==='ls'){
-    const ls=+document.getElementById('sr_ls').value;
-    document.getElementById('sv_ls').textContent=fmt(ls);
+  if (sipMode === 'ls') {
+    const ls = +document.getElementById('sr_ls').value;
+    document.getElementById('sv_ls').textContent = fmt(ls);
     rng(document.getElementById('sr_ls'));
-    r=calcLS(ls,rate,yrs);
-    // nudge
-    const dbl=calcLS(ls*2,rate,yrs);
-    document.getElementById('sipNudgeTxt').innerHTML='Investing <strong>'+fmt(ls*2)+'</strong> instead gives you <strong>'+fmt(dbl.corpus)+'</strong> \u2014 an extra <strong style="color:#4ADE80">'+fmt(dbl.corpus-r.corpus)+'</strong>. Compounding amplifies every rupee.';
+    r = calcLS(ls, rate, yrs);
+    const dbl = calcLS(ls * 2, rate, yrs);
+    document.getElementById('sipNudgeTxt').innerHTML = 'Investing <strong>' + fmt(ls * 2) + '</strong> instead gives you <strong>' + fmt(dbl.corpus) + '</strong> \u2014 an extra <strong style="color:#4ADE80">' + fmt(dbl.corpus - r.corpus) + '</strong>. Compounding amplifies every rupee.';
   } else {
-    const sip=+document.getElementById('sr1').value;
-    const step=(sipMode==='step')?+document.getElementById('sr2').value:0;
-    document.getElementById('sv1').textContent=fmt(sip);
-    document.getElementById('sv2').textContent=step+'%';
-    rng(document.getElementById('sr1'));
-    rng(document.getElementById('sr2'));
-    r=calcSIP(sip,step,rate,yrs);
-    // nudge
-    const dbl=calcSIP(sip*2,step,rate,yrs);
-    document.getElementById('sipNudgeTxt').innerHTML='Investing <strong>'+fmt(sip*2)+'/mo</strong> instead of '+fmt(sip)+' gives you <strong>'+fmt(dbl.corpus)+'</strong> \u2014 an extra <strong style="color:#4ADE80">'+fmt(dbl.corpus-r.corpus)+'</strong>.';
+    const sip = +document.getElementById('sr1').value;
+    const step = (sipMode === 'step') ? +document.getElementById('sr2').value : 0;
+    document.getElementById('sv1').textContent = fmt(sip);
+    document.getElementById('sv2').textContent = step + '%';
+    rng(document.getElementById('sr1')); rng(document.getElementById('sr2'));
+    r = calcSIP(sip, step, rate, yrs);
+    const dbl = calcSIP(sip * 2, step, rate, yrs);
+    document.getElementById('sipNudgeTxt').innerHTML = 'Investing <strong>' + fmt(sip * 2) + '/mo</strong> instead of ' + fmt(sip) + ' gives you <strong>' + fmt(dbl.corpus) + '</strong> \u2014 an extra <strong style="color:#4ADE80">' + fmt(dbl.corpus - r.corpus) + '</strong>.';
   }
 
-  document.getElementById('sr-c').textContent=fmt(r.corpus);
-  document.getElementById('sr-i').textContent=fmt(r.invested);
-  document.getElementById('sr-g').textContent=fmt(r.gain);
-  document.getElementById('sr-r').textContent=(r.corpus/r.invested).toFixed(2)+'x';
+  document.getElementById('sr-c').textContent = fmt(r.corpus);
+  document.getElementById('sr-i').textContent = fmt(r.invested);
+  document.getElementById('sr-g').textContent = fmt(r.gain);
+  document.getElementById('sr-r').textContent = (r.corpus / r.invested).toFixed(2) + 'x';
 
-  // chart
-  const lbls=[],inv2=[],gns=[];
-  const step_pts=Math.min(yrs,20);
-  const interval=Math.ceil(yrs/step_pts);
-  for(let y=interval;y<=yrs;y+=interval){
+  // Growth arrow
+  const pct = Math.round(((r.corpus - r.invested) / r.invested) * 100);
+  const arrowEl = document.getElementById('sipGrowthPct');
+  if (arrowEl) arrowEl.textContent = '+' + pct + '%';
+
+  const lbls = [], inv2 = [], gns = [];
+  const interval = Math.ceil(yrs / Math.min(yrs, 20));
+  for (let y = interval; y <= yrs; y += interval) {
     let d;
-    if(sipMode==='ls') d=calcLS(+document.getElementById('sr_ls').value,rate,y);
-    else {
-      const s=+document.getElementById('sr1').value,st=(sipMode==='step')?+document.getElementById('sr2').value:0;
-      d=calcSIP(s,st,rate,y);
-    }
-    lbls.push(y+'y');inv2.push(Math.round(d.invested));gns.push(Math.round(d.gain));
+    if (sipMode === 'ls') d = calcLS(+document.getElementById('sr_ls').value, rate, y);
+    else { const s = +document.getElementById('sr1').value, st = (sipMode === 'step') ? +document.getElementById('sr2').value : 0; d = calcSIP(s, st, rate, y); }
+    lbls.push(y + 'y'); inv2.push(Math.round(d.invested)); gns.push(Math.round(d.gain));
   }
-  sipCh=mkChart('sipChart',sipCh,lbls,inv2,gns);
+  sipCh = mkChart('sipChart', sipCh, lbls, inv2, gns);
 }
 
-function doubleSIP(){
-  if(sipMode==='ls'){
-    const el=document.getElementById('sr_ls');
-    const ni=document.getElementById('si_ls');
-    el.value=Math.min(+el.value*2,+el.max);
-    if(ni) ni.value=el.value;
+function doubleSIP() {
+  if (sipMode === 'ls') {
+    const el = document.getElementById('sr_ls'), ni = document.getElementById('si_ls');
+    el.value = Math.min(+el.value * 2, +el.max); if (ni) ni.value = el.value;
   } else {
-    const el=document.getElementById('sr1');
-    const ni=document.getElementById('si1');
-    el.value=Math.min(+el.value*2,+el.max);
-    if(ni) ni.value=el.value;
+    const el = document.getElementById('sr1'), ni = document.getElementById('si1');
+    el.value = Math.min(+el.value * 2, +el.max); if (ni) ni.value = el.value;
   }
   cSIP();
 }
 
-function cSWP(){
-  const corpus0=+document.getElementById('wr1').value,monthly=+document.getElementById('wr2').value,ratePct=+document.getElementById('wr3').value,yrs=+document.getElementById('wr4').value;
-  document.getElementById('wv1').textContent=fmt(corpus0);
-  document.getElementById('wv2').textContent=fmt(monthly);
-  document.getElementById('wv3').textContent=ratePct+'%';
-  document.getElementById('wv4').textContent=yrs+' Yrs';
-  ['wr1','wr2','wr3','wr4'].forEach(id=>rng(document.getElementById(id)));
-  const mrate=ratePct/100/12;
-  let corpus=corpus0,totalW=0,depletedAt=null;
-  const months=yrs*12;
-  const lbls=[],corpusLine=[];
-  const iv=Math.ceil(yrs/Math.min(yrs,20));
-  for(let mo=1;mo<=months;mo++){
-    corpus=corpus*(1+mrate)-monthly;
-    totalW+=monthly;
-    if(corpus<=0&&depletedAt===null){depletedAt=mo;corpus=0;}
-    if(mo%(iv*12)===0||mo===months){lbls.push(Math.round(mo/12)+'y');corpusLine.push(Math.max(0,Math.round(corpus)));}
+function cSWP() {
+  const corpus0 = +document.getElementById('wr1').value, monthly = +document.getElementById('wr2').value,
+        ratePct = +document.getElementById('wr3').value, yrs = +document.getElementById('wr4').value;
+  document.getElementById('wv1').textContent = fmt(corpus0);
+  document.getElementById('wv2').textContent = fmt(monthly);
+  document.getElementById('wv3').textContent = ratePct + '%';
+  document.getElementById('wv4').textContent = yrs + ' Yrs';
+  ['wr1', 'wr2', 'wr3', 'wr4'].forEach(id => rng(document.getElementById(id)));
+
+  const mrate = ratePct / 100 / 12;
+  let corpus = corpus0, totalW = 0, depletedAt = null;
+  const months = yrs * 12, lbls = [], corpusLine = [];
+  const iv = Math.ceil(yrs / Math.min(yrs, 20));
+  for (let mo = 1; mo <= months; mo++) {
+    corpus = corpus * (1 + mrate) - monthly; totalW += monthly;
+    if (corpus <= 0 && depletedAt === null) { depletedAt = mo; corpus = 0; }
+    if (mo % (iv * 12) === 0 || mo === months) { lbls.push(Math.round(mo / 12) + 'y'); corpusLine.push(Math.max(0, Math.round(corpus))); }
   }
-  const remaining=Math.max(0,corpus);
-  document.getElementById('wr-c').textContent=fmt(remaining);
-  document.getElementById('wr-s').textContent=fmt(corpus0);
-  document.getElementById('wr-w').textContent=fmt(totalW);
-  const statEl=document.getElementById('wr-stat');
-  const endEl=document.getElementById('wr-end');
-  if(depletedAt){
-    statEl.textContent='\u26A0 Corpus depletes';statEl.style.color='#f87171';
-    endEl.textContent='Month '+depletedAt+' (Year '+(Math.ceil(depletedAt/12))+')';
-    document.getElementById('swpNudgeTxt').innerHTML='At \u20B9'+monthly.toLocaleString('en-IN')+'/mo withdrawal, your corpus depletes in <strong>Year '+Math.ceil(depletedAt/12)+'</strong>. Consider reducing withdrawal to <strong>'+fmt(corpus0*ratePct/100/12)+'</strong>/mo to sustain the corpus indefinitely.';
+  const remaining = Math.max(0, corpus);
+  document.getElementById('wr-c').textContent = fmt(remaining);
+  document.getElementById('wr-s').textContent = fmt(corpus0);
+  document.getElementById('wr-w').textContent = fmt(totalW);
+
+  const statEl = document.getElementById('wr-stat'), endEl = document.getElementById('wr-end');
+  const arrowEl = document.getElementById('swpArrow'), pctEl = document.getElementById('swpGrowthPct');
+  if (depletedAt) {
+    statEl.textContent = '\u26A0 Corpus depletes'; statEl.style.color = '#f87171';
+    endEl.textContent = 'Month ' + depletedAt + ' (Year ' + Math.ceil(depletedAt / 12) + ')';
+    document.getElementById('swpNudgeTxt').innerHTML = 'At \u20B9' + monthly.toLocaleString('en-IN') + '/mo withdrawal, your corpus depletes in <strong>Year ' + Math.ceil(depletedAt / 12) + '</strong>. Consider reducing withdrawal to <strong>' + fmt(corpus0 * ratePct / 100 / 12) + '</strong>/mo to sustain indefinitely.';
+    if (arrowEl) { arrowEl.style.background = 'rgba(248,113,113,0.15)'; arrowEl.style.borderColor = 'rgba(248,113,113,0.4)'; }
+    if (pctEl) { pctEl.textContent = 'Depletes'; pctEl.style.color = '#f87171'; }
+    const arrowSvg = arrowEl && arrowEl.querySelector('svg');
+    if (arrowSvg) arrowSvg.innerHTML = '<polyline points="2,3 7,11 12,3" stroke="#f87171" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>';
   } else {
-    statEl.textContent='\u2713 Corpus sustained';statEl.style.color='#4ADE80';
-    endEl.textContent='Sustains beyond '+yrs+' years';
-    document.getElementById('swpNudgeTxt').innerHTML='Your corpus of <strong>'+fmt(corpus0)+'</strong> sustains <strong>'+fmt(monthly)+'/mo</strong> for the full '+yrs+' years and leaves <strong style="color:#4ADE80">'+fmt(remaining)+'</strong> remaining. Great planning!';
+    statEl.textContent = '\u2713 Corpus sustained'; statEl.style.color = '#4ADE80';
+    endEl.textContent = 'Sustains beyond ' + yrs + ' years';
+    document.getElementById('swpNudgeTxt').innerHTML = 'Your corpus of <strong>' + fmt(corpus0) + '</strong> sustains <strong>' + fmt(monthly) + '/mo</strong> for the full ' + yrs + ' years and leaves <strong style="color:#4ADE80">' + fmt(remaining) + '</strong> remaining.';
+    if (arrowEl) { arrowEl.style.background = 'rgba(74,222,128,0.15)'; arrowEl.style.borderColor = 'rgba(74,222,128,0.35)'; }
+    if (pctEl) { pctEl.textContent = 'Sustained'; pctEl.style.color = '#4ADE80'; }
+    const arrowSvg = arrowEl && arrowEl.querySelector('svg');
+    if (arrowSvg) arrowSvg.innerHTML = '<polyline points="2,11 7,3 12,11" stroke="#4ADE80" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><line x1="7" y1="3" x2="7" y2="11" stroke="#4ADE80" stroke-width="2.2" stroke-linecap="round"/>';
   }
-  swpCh=mkChart('swpChart',swpCh,lbls,corpusLine,null,true);
+  swpCh = mkChart('swpChart', swpCh, lbls, corpusLine, null, true);
 }
 
-function stab(t){
-  ['sip','swp'].forEach((id,i)=>{
-    document.querySelectorAll('.ctab')[i].classList.toggle('active',id===t);
-    document.getElementById('t-'+id).classList.toggle('active',id===t);
+function stab(t) {
+  ['sip', 'swp'].forEach((id, i) => {
+    document.querySelectorAll('.ctab')[i].classList.toggle('active', id === t);
+    document.getElementById('t-' + id).classList.toggle('active', id === t);
   });
-  if(t==='sip') setTimeout(cSIP,60);
-  else setTimeout(cSWP,60);
+  if (t === 'sip') setTimeout(cSIP, 60); else setTimeout(cSWP, 60);
 }
 
-function tmenu(){document.getElementById('mm').classList.toggle('open');}
+function tmenu() { document.getElementById('mm').classList.toggle('open'); }
 
-// ── Contact form with email ──
-function submitF(){
-  const n=document.getElementById('fn').value.trim(),p=document.getElementById('fp').value.trim();
-  if(!n||!p){alert('Please fill in your name and mobile number.');return;}
-  const email=document.getElementById('fe').value.trim();
-  const interest=document.getElementById('fi').value;
-  const msg=document.getElementById('fm').value.trim();
-  const subject=encodeURIComponent('New Enquiry from '+n+' — INDividend Finserv Website');
-  const body=encodeURIComponent(
-    'Name: '+n+'\n'+
-    'Mobile: '+p+'\n'+
-    'Email: '+(email||'Not provided')+'\n'+
-    'Interested in: '+(interest||'Not specified')+'\n\n'+
-    'Message:\n'+(msg||'No message provided')
-  );
-  // Open mailto to ranjith's email
-  window.location.href='mailto:ranjith@individend.in?subject='+subject+'&body='+body;
-  // Show success
-  document.getElementById('fok').style.display='block';
-  document.querySelector('.bsub').style.display='none';
+function submitF() {
+  const n = document.getElementById('fn').value.trim(), p = document.getElementById('fp').value.trim();
+  if (!n || !p) { alert('Please fill in your name and mobile number.'); return; }
+  const email = document.getElementById('fe').value.trim();
+  const interest = document.getElementById('fi').value;
+  const msg = document.getElementById('fm').value.trim();
+  const subject = encodeURIComponent('New Enquiry from ' + n + ' \u2014 INDividend Finserv Website');
+  const body = encodeURIComponent('Name: ' + n + '\nMobile: ' + p + '\nEmail: ' + (email || 'Not provided') + '\nInterested in: ' + (interest || 'Not specified') + '\n\nMessage:\n' + (msg || 'No message provided'));
+  window.location.href = 'mailto:ranjith@individend.in?subject=' + subject + '&body=' + body;
+  document.getElementById('fok').style.display = 'block';
+  document.querySelector('.bsub').style.display = 'none';
 }
 
-const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('vis');}),{threshold:0.08});
-document.querySelectorAll('.fu').forEach(el=>obs.observe(el));
-window.addEventListener('scroll',()=>{document.getElementById('mainnav').style.boxShadow=window.scrollY>30?'0 4px 28px rgba(0,0,0,0.26)':'';});
+// ─── INIT ────────────────────────────────────────────────
+const obs = new IntersectionObserver(e => e.forEach(x => { if (x.isIntersecting) x.target.classList.add('vis'); }), { threshold: 0.08 });
+document.querySelectorAll('.fu').forEach(el => obs.observe(el));
+window.addEventListener('scroll', () => { document.getElementById('mainnav').style.boxShadow = window.scrollY > 30 ? '0 4px 28px rgba(0,0,0,0.26)' : ''; });
+['sr1','sr2','sr3','sr4','sr_ls','wr1','wr2','wr3','wr4'].forEach(id => { const el = document.getElementById(id); if (el) rng(el); });
 
-// Init all range fills
-['sr1','sr2','sr3','sr4','sr_ls','wr1','wr2','wr3','wr4'].forEach(id=>{const el=document.getElementById(id);if(el)rng(el);});
-cSIP();cSWP();
+// Init carousels after DOM ready
+initCar('prod', 'prod-track', 'prod-dots', 'prod-prev', 'prod-next');
+initCar('svc',  'svc-track',  'svc-dots',  'svc-prev',  'svc-next');
+
+cSIP(); cSWP();
 </script>
 </body>
 </html>
